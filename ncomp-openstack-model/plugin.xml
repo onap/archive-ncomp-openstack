@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated core -->
+      <package
+            uri="org.openecomp.ncomp.openstack.core"
+            class="org.openecomp.ncomp.openstack.core.CorePackage"
+            genModel="src/main/xcore/core.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated neutron -->
+      <package
+            uri="org.openecomp.ncomp.openstack.neutron"
+            class="org.openecomp.ncomp.openstack.neutron.NeutronPackage"
+            genModel="src/main/xcore/neutron.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated compute -->
+      <package
+            uri="org.openecomp.ncomp.openstack.compute"
+            class="org.openecomp.ncomp.openstack.compute.ComputePackage"
+            genModel="src/main/xcore/compute.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated location -->
+      <package
+            uri="org.openecomp.ncomp.openstack.location"
+            class="org.openecomp.ncomp.openstack.location.LocationPackage"
+            genModel="src/main/xcore/location.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated openstack -->
+      <package
+            uri="org.openecomp.ncomp.openstack"
+            class="org.openecomp.ncomp.openstack.OpenstackPackage"
+            genModel="src/main/xcore/openstack.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ceilometer -->
+      <package
+            uri="org.openecomp.ncomp.openstack.ceilometer"
+            class="org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage"
+            genModel="src/main/xcore/ceilometer.xcore"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,149 @@
+
+/*-
+ * ============LICENSE_START==========================================
+ * OPENECOMP - DCAE
+ * ===================================================================
+ * Copyright (c) 2017 AT&T Intellectual Property. All rights reserved.
+ * ===================================================================
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ============LICENSE_END============================================
+ */
+	
+@GenModel(modelDirectory="/ncomp-openstack-model/src/main/xcore-gen")
+
+package org.openecomp.ncomp.openstack.location
+
+import org.openecomp.ncomp.core.NamedEntity
+import org.openecomp.ncomp.openstack.compute.Flavor
+import org.openecomp.ncomp.openstack.compute.FloatingIp
+import org.openecomp.ncomp.openstack.compute.Image
+import org.openecomp.ncomp.openstack.compute.KeyPair
+import org.openecomp.ncomp.openstack.compute.SecurityGroup
+import org.openecomp.ncomp.openstack.compute.Server
+import org.openecomp.ncomp.openstack.compute.Volume
+import org.openecomp.ncomp.openstack.neutron.CreateNetworkRequest
+import org.openecomp.ncomp.openstack.neutron.Network
+import org.openecomp.ncomp.openstack.neutron.NeutronSecurityGroup
+import org.openecomp.ncomp.openstack.neutron.Port
+import org.openecomp.ncomp.openstack.neutron.Router
+import org.openecomp.ncomp.openstack.neutron.Subnet
+import org.openecomp.ncomp.openstack.neutron.NeutronService
+import org.openecomp.ncomp.openstack.compute.ComputeService
+import org.openecomp.ncomp.openstack.neutron.NeutronFloatingIp
+import org.openecomp.ncomp.openstack.ceilometer.CeilometerService
+import org.openecomp.ncomp.openstack.ceilometer.CeilometerProject 
+
+annotation 'http://openecomp.org/sirius/persistence' as persistence 
+
+
+class OpenStackLocation extends NamedEntity, NeutronService, ComputeService, CeilometerService { 
+	OpenStackVersion version
+	boolean remoteLocation = "false"
+	String remoteLocationName
+	boolean allowCreateFlavor
+	String keystoneUrl
+	String bypassIp 
+	int flavorId = "20000"
+	boolean supportsSecurityGroups = "true"
+	boolean supportsFloatingIps = "true"
+	contains unordered OpenStackProject[] projects
+	contains unordered OpenStackUser[] users  
+	contains unordered Image[] images // 
+  	contains unordered Flavor[] flavors // 
+  	contains unordered Hypervisor[] hypervisors
+  	op void poll()
+	op void mergeLocation(OpenStackLocation loc)
+} 
+
+enum OpenStackVersion {
+	Folsom,
+	Grizzly,
+	Havana,
+	Icehouse,
+	Juno,
+	Kilo,
+	Liberty,
+	Mitaka
+}
+
+class OpenStackProject extends NamedEntity, CeilometerProject {
+	String ID
+	String adminUser
+	String tenantId
+	String region
+	String privateNetwork
+	String publicNetwork
+	String apiKey // Rackspace
+	contains unordered Server[] servers // 
+	refers unordered OpenStackUser[] users
+	refers OpenStackUser controllerUser
+	op void updateNovaState() 
+	contains unordered Volume[] volumes 
+	contains unordered FloatingIp[] ips
+	contains unordered SecurityGroup[] groups
+	contains unordered KeyPair[] keypairs
+	contains unordered Network[] networks
+	contains unordered Subnet[] subnets
+	contains unordered Router[] routers
+	contains unordered Port[] ports
+	contains unordered NeutronSecurityGroup[] security_groups
+	contains unordered NeutronFloatingIp[] floatingips
+	op Network createNetwork(CreateNetworkRequest r)
+}
+
+class OpenStackUser extends NamedEntity {
+	@persistence(propertyFile="bsa.properties")
+	transient String password
+}
+
+class HypervisorService {
+  String host // lab3-bsa-03-bay03
+  int ^id // 14
+}
+
+class HypervisorCpuTopology {
+  int cores // 8
+  int threads // 2
+  int sockets // 1
+}
+
+
+class HypervisorCpuInfo {
+  String vendor // Intel
+  String model // SandyBridge
+  String arch // x86_64
+  String[] features // ["pdpe1gb","osxsave","dca","pdcm","xtpr","tm2","est","smx","vmx","ds_cpl","monitor","dtes64","pbe","tm","ht","ss","acpi","ds","vme"]
+  contains HypervisorCpuTopology topology // {"cores":8,"threads":2,"sockets":1}
+}
+
+
+class Hypervisor extends NamedEntity {
+  contains HypervisorService service // {"host":"lab3-bsa-03-bay03","id":14}
+  String host_ip
+  int vcpus_used // 4
+  String hypervisor_type // QEMU
+  int local_gb_used // 60
+  String hypervisor_hostname // 
+  int memory_mb_used // 20992
+  int memory_mb // 257922
+  int current_workload // 0
+  int vcpus // 64
+  contains HypervisorCpuInfo cpu_info // {"vendor": "Intel", "model": "SandyBridge", "arch": "x86_64", "features": ["pdpe1gb", "osxsave", "dca", "pdcm", "xtpr", "tm2", "est", "smx", "vmx", "ds_cpl", "monitor", "dtes64", "pbe", "tm", "ht", "ss", "acpi", "ds", "vme"], "topology": {"cores": 8, "threads": 2, "sockets": 1}}
+  int running_vms // 2
+  int free_disk_gb // 1007
+  int hypervisor_version // 1002000
+  int disk_available_least // 977
+  int local_gb // 1067
+  int free_ram_mb // 236930
+  int ^id // 2
+}

@@ -1,0 +1,12 @@
+operations:
+  POLLING:
+    description: Openstack polling.
+messages:
+  POLLING_FAILED:
+    errorCode: NCOMP-OPENSTACK-POLLING-FAILED-5001W
+    messageFormat: '{0}'
+    parameters:
+      service-name: 
+        description: Resource path of Openstack Location.
+    resolution: Verify Openstack setup.
+    description: Openstack Polling fails.

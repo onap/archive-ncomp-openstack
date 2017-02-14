@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ncomp-openstack-controller
+Bundle-SymbolicName: ncomp-openstack-controller
+Bundle-Version: 0.1.0.qualifier
+Export-Package: org.openecomp.ncomp.openstack.controller.tools,
+ org.openecomp.ncomp.servers.openstack,
+ org.openecomp.ncomp.servers.openstack.loc
+Require-Bundle: ncomp-core-types;bundle-version="0.1.0",
+ ncomp-sirius-manager-model;bundle-version="0.1.0",
+ ncomp-sirius-manager-server;bundle-version="0.1.0",
+ ncomp-sirius-manager-console;bundle-version="0.1.0",
+ ncomp-sirius-manager-generator;bundle-version="0.1.0",
+ ncomp-openstack-model;bundle-version="0.1.0",
+ ncomp-utils-java;bundle-version="0.1.0"

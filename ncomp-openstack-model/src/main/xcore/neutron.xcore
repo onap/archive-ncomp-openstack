@@ -1,0 +1,214 @@
+
+/*-
+ * ============LICENSE_START==========================================
+ * OPENECOMP - DCAE
+ * ===================================================================
+ * Copyright (c) 2017 AT&T Intellectual Property. All rights reserved.
+ * ===================================================================
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ============LICENSE_END============================================
+ */
+	
+@GenModel(modelDirectory="/ncomp-openstack-model/src/main/xcore-gen")
+
+package org.openecomp.ncomp.openstack.neutron
+
+import org.openecomp.ncomp.openstack.core.OpenStackRequest
+
+annotation "http://openecomp.org/sirius/openstack" as openstack
+
+abstract class NeutronService {
+	op Network createNetwork(CreateNetworkRequest request)
+	op Subnet createSubnet(CreateSubnetRequest request)
+	op Port createPort(CreatePortRequest request)
+	op Router createRouter(CreateRouterRequest request)
+	op void deleteNetwork(String projectName, String name)
+	op void deleteSubnet(String projectName, String name)
+	op void deletePort(String projectName, String name)
+	op void deleteRouter(String projectName, String name)
+	op void associateFloatingIp(String projectName, String ipId, String portId)
+}
+
+
+abstract class NeutronObject {}
+
+class Network extends NeutronObject {
+	String ^id
+	String name
+	Boolean admin_state_up
+	String provider_network_type
+	String provider_physical_network
+	Integer provider_segmentation_id
+	Boolean router_external
+	Boolean shared
+	String status
+	String[] subnets
+	String tenant_id
+}
+
+class Subnet extends NeutronObject {
+	String ^id
+	String name
+	String status
+	Boolean admin_state_up
+	String cidr
+	contains AllocationPool[] allocation_pools
+	String[] dns_nameservers
+	Boolean enable_dhcp
+	String gateway_ip
+	String[] host_routes
+	Integer ip_version
+	String network_id
+	String tenant_id
+}
+
+class AllocationPool {
+	String start
+	String end
+}
+
+class Router extends NeutronObject {
+	String ^id
+	String name
+	String status
+	Boolean admin_state_up
+	contains ExternalGateway external_gateway_info
+	String tenant_id
+}
+
+class Port extends NeutronObject {
+	String ^id
+	String name
+	String status
+	Boolean admin_state_up
+	contains ExternalGateway external_gateway_info
+	String tenant_id
+	String[] allowed_address_pairs
+	String binding_host_id
+	contains BindingProfile binding_profile
+	contains BindingVifDetail binding_vif_details
+	String binding_vif_type
+	String binding_vnic_type
+	String device_id
+	String device_owner
+	String[] extra_dhcp_opts
+	contains FixedIp[] fixed_ips
+	String mac_address
+	String network_id
+	String[] security_groups
+}
+
+class NeutronSecurityGroup extends NeutronObject {
+	String ^id
+	String name
+	String description
+	contains NeutronSecurityRule[] security_group_rules
+	String tenant_id
+}
+
+class NeutronSecurityRule extends NeutronObject {
+	String ^id
+	String direction
+	String ethertype
+	Integer port_range_min
+	Integer port_range_max
+	String protocol
+	String remote_group_id
+	String remote_ip_prefix
+	String security_group_id
+	String tenant_id
+}
+
+class NeutronFloatingIp extends NeutronObject {
+	String ^id
+	String name
+	String status
+	String floating_network_id
+	String router_id
+	String fixed_ip_address
+	String floating_ip_address
+	String tenant_id
+	String port_id
+}
+
+
+class BindingProfile {
+}
+
+class BindingVifDetail {
+	Boolean ovs_hybrid_plug
+	Boolean port_filter
+}
+
+class FixedIp {
+	String ip_address
+	String subnet_id
+}
+
+class ExternalGateway {
+	Boolean enable_snat
+	String network_id
+}
+
+abstract class NeutronRequest extends OpenStackRequest {
+}
+
+class CreateNetworkRequest extends NeutronRequest {
+	String name
+	@openstack(name="provider:network_type")
+	String providerNetworkType 
+	@openstack(name="provider:physical_network")
+	String providerPhysicalNetwork
+	@openstack(name="provider:segmentation_id")
+	int providerSegmentationId
+	Boolean admin_state_up
+	Boolean shared	
+}
+
+class CreateSubnetRequest extends NeutronRequest {
+	String name
+	String[1] network_id
+	int ip_version
+	String cidr
+	contains AllocationPool[] allocation_pools
+	String[] dns_nameservers
+	Boolean enable_dhcp
+	String gateway_ip
+}
+
+class CreateRouterRequest extends NeutronRequest {
+	String name
+	Boolean admin_state_up
+	Boolean shared
+	String externalNetwork
+	String[] ports
+	String[] subnets
+}
+
+class CreatePortRequest extends NeutronRequest { 
+	String name
+	@openstack(name="binding:vnic_type")
+	String bindingVnicType 
+	String status
+	Boolean admin_state_up
+	@openstack(removeEmptyList="true")
+	contains FixedIp[] fixed_ips
+	String mac_address
+	String[1] network_id
+	//String[] security_groups
+}
+
+
+
+
+

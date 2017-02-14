@@ -1,0 +1,14 @@
+operations:
+  uploadOpenstackConfiguration: {}
+  REMOTE_uploadOpenstackConfiguration:
+    decription: Remote call uploadOpenstackConfiguration
+messages:
+  dummy: {}
+  uploadOpenstackConfiguration:
+    errorCode: uploadOpenstackConfiguration-FAILED-5001W
+    messageFormat: '{0}'
+    description: Operation Failed with Exception
+  REMOTE_uploadOpenstackConfiguration:
+    errorCode: REMOTE-uploadOpenstackConfiguration-FAILED-5001W
+    messageFormat: '{0}'
+    description: Remote Operation Failed with Exception

@@ -1,0 +1,250 @@
+
+/*-
+ * ============LICENSE_START==========================================
+ * OPENECOMP - DCAE
+ * ===================================================================
+ * Copyright (c) 2017 AT&T Intellectual Property. All rights reserved.
+ * ===================================================================
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ============LICENSE_END============================================
+ */
+	
+@GenModel(modelDirectory="/ncomp-openstack-model/src/main/xcore-gen")
+
+package org.openecomp.ncomp.openstack.compute
+
+import org.openecomp.ncomp.core.NamedEntity
+import org.openecomp.ncomp.openstack.core.OpenStackRequest
+import org.openecomp.ncomp.openstack.core.VirtualMachineType
+import org.openecomp.ncomp.core.User
+import org.openecomp.ncomp.openstack.core.OpenstackRequestDelete
+
+abstract class ComputeService {
+	op void createServer(OpenstackRequestNewServer request)
+	op void deleteServer(String projectName, String name)
+	op void createKeyPair(OpenstackRequestKeyPair request)
+	op void delete(OpenstackRequestDelete request)
+	op void createFlavor(OpenstackRequestFlavor request)
+	op void createSecurityGroup(OpenstackRequestSecurityGroup request)
+	op void serverAction(OpenstackRequestServerAction request)
+	op void deployVmType(String vmTypeName, String projectName)
+	op void undeployVmType(String vmTypeName, String projectName)
+	op void deployUser(User user, String projectName)
+	op void undeployUser(User user, String projectName) 
+}
+
+class OpenstackRequestNewServer extends OpenStackRequest {
+	String name
+	String hypervisor
+	String user
+	String[] networks
+	String[] ports
+	String user_data
+	String floatingIp
+	contains VirtualMachineType vmType  
+}
+
+
+class OpenstackRequestKeyPair extends OpenStackRequest {
+	contains User user
+}
+
+class OpenstackRequestFlavor extends OpenStackRequest {
+	contains VirtualMachineType vmType
+}
+
+class OpenstackRequestSecurityGroup extends OpenStackRequest {
+	contains VirtualMachineType vmType
+}
+
+class OpenstackRequestServerAction extends OpenStackRequest {
+	String name
+	String action
+}
+
+class OpenstackRequestPoll extends OpenStackRequest {
+}
+
+ 
+class Server {
+  String ^id 
+  String tenant_id 
+  String user_id 
+  String name 
+  String updated 
+  String created 
+  String hostId 
+  String accessIPv4 
+  String accessIPv6 
+  String status 
+  String config_drive
+  String key_name
+  int progress 
+  String OS_DCF_diskConfig
+  int OS_EXT_STS_power_state
+  String OS_EXT_STS_vm_state
+  String OS_EXT_STS_task_state
+  String OS_EXT_SRV_ATTR_host
+  String OS_EXT_SRV_ATTR_instance_name
+  String OS_EXT_SRV_ATTR_hypervisor_hostname
+  String OS_SRV_USG_launched_at
+  String OS_SRV_USG_terminated_at
+  contains Reference image 
+  contains Reference flavor 
+  contains Addresses[] addresses 
+  contains SecurityGroup[] security_groups
+  contains Metadata[] metadata 
+  contains Link[] links 
+  contains Fault fault
+
+
+
+
+
+
+
+}
+
+class Image {
+  String ^id 
+  String name 
+  String updated 
+  String created 
+  String tenant_id 
+  String user_id 
+  String status 
+  Long progress 
+  Long minDisk 
+  Long minRam 
+  Long OS_EXT_IMG_SIZE_size
+  contains Reference server 
+  contains Link[] links 
+  contains Metadata[] metadata 
+}
+
+class Flavor {
+  String ^id 
+  String name 
+  int ram 
+  int disk 
+  int vcpus 
+  String swap
+  double rxtx_factor
+  int OS_FLV_EXT_DATA_ephemeral
+  boolean OS_FLV_DISABLED_disabled
+  boolean os_flavor_access_is_public
+  contains Link[] links 
+}
+
+class Addresses {
+  String name
+  contains Address[] ips 
+}
+
+class Address {
+  int version 
+  String addr 
+  String OS_EXT_IPS_MAC_mac_addr
+  String OS_EXT_IPS_type
+}
+
+class Link {
+  String rel 
+  String href 
+  String ^type 
+}
+
+class Metadata {
+  String key 
+  String value 
+}
+
+class Fault {
+  String message 
+  String created 
+  int code
+}
+
+class Personality {
+  String path 
+  String contents 
+}
+
+class Reference {
+	String ^id
+	contains Link[] links
+}
+
+class Volume extends NamedEntity {
+  String status 
+  String display_name 
+  contains VolumeAttachment[] attachments 
+  String availability_zone 
+  String created_at 
+  String volume_type 
+  contains Metadata[] metadata 
+  String ^id 
+  int size 
+  String snapshot_id
+  String display_description
+}
+
+
+class VolumeAttachment { 
+  String device 
+  String server_id 
+  String ^id 
+  String volume_id 
+}
+
+class FloatingIp {
+  String instance_id 
+  String ip 
+  String fixed_ip 
+  String ^id 
+  String pool 
+}
+
+class SecurityGroup extends NamedEntity {
+  contains SecurityRule[] rules 
+  String tenant_id 
+  String ^id 
+  String description 
+}
+
+class SecurityRule {
+  Integer from_port 
+  contains SecurityGroup group 
+  String ip_protocol 
+  Integer to_port 
+  String parent_group_id 
+  contains SecurityRange ip_range 
+  String ^id 
+}
+
+class SecurityRange {
+  String cidr 
+}
+
+class KeyPair {
+  String public_key 
+  String name 
+  String fingerprint 
+}
+
+
+	
+
+	
+
+	

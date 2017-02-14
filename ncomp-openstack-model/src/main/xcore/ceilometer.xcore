@@ -1,0 +1,130 @@
+
+/*-
+ * ============LICENSE_START==========================================
+ * OPENECOMP - DCAE
+ * ===================================================================
+ * Copyright (c) 2017 AT&T Intellectual Property. All rights reserved.
+ * ===================================================================
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ============LICENSE_END============================================
+ */
+	
+@GenModel(modelDirectory="/ncomp-openstack-model/src/main/xcore-gen")
+
+package org.openecomp.ncomp.openstack.ceilometer
+
+import org.openecomp.ncomp.openstack.core.OpenStackRequest
+import org.openecomp.ncomp.core.NamedEntity
+import org.openecomp.ncomp.openstack.compute.Link
+import org.openecomp.ncomp.openstack.compute.Metadata
+
+annotation "http://openecomp.org/sirius/openstack" as openstack
+
+abstract class CeilometerService {
+	op CeilometerAlarm createAlarm(CreateAlarmRequest request)
+	op void deleteAlarm(String projectName, String name)
+	op CeilometerSample[] createAlarm(SampleRequest request)
+	String[] ceilometerAvailableCapabilites
+	String[] ceilometerUnavailableCapabilites
+}
+
+abstract class CeilometerProject {
+	contains CeilometerAlarm[] alarms
+	contains CeilometerResource[] resources
+	contains CeilometerMeter[] meters
+}
+
+abstract class CeilometerAlarm extends NamedEntity {
+	String ^id
+	String user_id
+	Date timestamp
+	Boolean enabled
+	String state
+	Date state_timestamp
+	String description
+	String[] alarm_actions
+	String[] ok_actions
+	String[] insufficient_data_actions 
+	Boolean repeat_actions
+	String[] time_constraints 
+}
+
+class CeilometerThresholdAlarm extends CeilometerAlarm {
+	contains CeilometerThresholdAlarmRule threshold_rule
+	
+}
+
+class CeilometerThresholdAlarmRule {
+	String meter_name
+    Long evaluation_periods
+    Long period
+    String statistic
+    double threshold
+    String[] query
+    String comparison_operator
+    Boolean exclude_outliers
+}
+
+
+class CeilometerResource {
+	String ^id
+	String user_id
+	String project_id
+	Date first_sample_timestamp
+	Date last_sample_timestamp
+	contains Link[] links
+	contains Metadata metadata
+}
+class CeilometerMeter {}
+
+class CeilometerQuery {
+	contains CeilometerFilter[] filter
+	contains CeilometerOrderedBy[] orderby
+	Long limit
+}
+
+class CeilometerFilter {
+	String operation
+	String value
+	String field
+	contains CeilometerFilter[] filters
+}
+
+class CeilometerOrderedBy {
+	String field
+	String direction
+}
+
+abstract class CeilometerRequest extends OpenStackRequest {
+	
+}
+
+class CreateAlarmRequest extends CeilometerRequest {
+}
+
+class SampleRequest extends CeilometerRequest {
+	contains CeilometerQuery query
+}
+
+class CeilometerSample {
+	String counter_name
+	String user_id
+	String resource_id
+	Date timestamp
+	Date recorded_at
+	String message_id
+	String source
+	String counter_unit
+	double counter_volume
+	String project_id
+}
