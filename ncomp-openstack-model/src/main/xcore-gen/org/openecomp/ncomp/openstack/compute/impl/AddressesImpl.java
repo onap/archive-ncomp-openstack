@@ -49,11 +49,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.AddressesImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.AddressesImpl#getIps <em>Ips</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

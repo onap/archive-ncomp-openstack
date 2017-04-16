@@ -35,6 +35,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.core.VirtualMachineType#getDescription <em>Description</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.VirtualMachineType#getNumberOfCores <em>Number Of Cores</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.core.VirtualMachineType#getIncomingSecurityRules <em>Incoming Security Rules</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.VirtualMachineType#getOutboundSecurityRules <em>Outbound Security Rules</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.core.CorePackage#getVirtualMachineType()
  * @model

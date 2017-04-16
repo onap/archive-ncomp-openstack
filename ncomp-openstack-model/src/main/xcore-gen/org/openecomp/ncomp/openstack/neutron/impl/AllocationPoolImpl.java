@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.AllocationPoolImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.AllocationPoolImpl#getEnd <em>End</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

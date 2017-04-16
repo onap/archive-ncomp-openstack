@@ -32,13 +32,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.VolumeAttachment#getDevice <em>Device</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.VolumeAttachment#getServer_id <em>Server id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.VolumeAttachment#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.VolumeAttachment#getVolume_id <em>Volume id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getVolumeAttachment()
  * @model

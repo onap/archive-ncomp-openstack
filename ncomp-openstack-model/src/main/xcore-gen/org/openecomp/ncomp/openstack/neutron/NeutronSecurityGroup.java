@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityGroup#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityGroup#getName <em>Name</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityGroup#getSecurity_group_rules <em>Security group rules</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityGroup#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getNeutronSecurityGroup()
  * @model

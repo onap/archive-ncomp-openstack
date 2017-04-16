@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateRouterRequestImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateRouterRequestImpl#getAdmin_state_up <em>Admin state up</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateRouterRequestImpl#getPorts <em>Ports</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateRouterRequestImpl#getSubnets <em>Subnets</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

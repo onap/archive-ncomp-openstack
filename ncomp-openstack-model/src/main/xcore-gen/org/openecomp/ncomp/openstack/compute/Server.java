@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Server#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Server#getTenant_id <em>Tenant id</em>}</li>
@@ -65,7 +66,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Server#getLinks <em>Links</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Server#getFault <em>Fault</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getServer()
  * @model

@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateSubnetRequest#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateSubnetRequest#getNetwork_id <em>Network id</em>}</li>
@@ -42,7 +43,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateSubnetRequest#getEnable_dhcp <em>Enable dhcp</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateSubnetRequest#getGateway_ip <em>Gateway ip</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getCreateSubnetRequest()
  * @model

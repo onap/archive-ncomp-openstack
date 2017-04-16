@@ -51,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeImpl#getDisplay_name <em>Display name</em>}</li>
@@ -64,7 +65,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeImpl#getSnapshot_id <em>Snapshot id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeImpl#getDisplay_description <em>Display description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

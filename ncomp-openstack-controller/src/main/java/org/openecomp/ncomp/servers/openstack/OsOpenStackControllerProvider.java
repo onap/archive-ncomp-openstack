@@ -27,7 +27,7 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
-import org.openecomp.logger.EcompLogger;
+import org.openecomp.logger.StatusCodeEnum;
 import org.openecomp.ncomp.openstack.OpenStackController;
 import org.openecomp.ncomp.openstack.controller.tools.OpenStackUtil;
 import org.openecomp.ncomp.openstack.location.OpenStackLocation;
@@ -38,11 +38,12 @@ import org.openecomp.ncomp.sirius.manager.ISiriusServer;
 import org.openecomp.ncomp.sirius.manager.ManagementServer;
 import org.openecomp.ncomp.sirius.manager.ManagementServerError;
 import org.openecomp.ncomp.sirius.manager.ManagementServerUtils;
+import org.openecomp.ncomp.sirius.manager.logging.NcompLogger;
 import org.openecomp.ncomp.sirius.manager.server.ServerPackage;
 
 public class OsOpenStackControllerProvider extends BasicAdaptorProvider {
 	public static final Logger logger = Logger.getLogger(OsOpenStackControllerProvider.class);
-	static final EcompLogger ecomplogger = EcompLogger.getEcompLogger();
+	static final NcompLogger ecomplogger = NcompLogger.getNcompLogger();
 	private HashMap<String, OpenStackUtil> utils = new HashMap<String, OpenStackUtil>();
 	private HashMap<String, Thread> pollers = new HashMap<String, Thread>();
 	private HashMap<String, Date> lastPoll = new HashMap<String, Date>();
@@ -71,20 +72,20 @@ public class OsOpenStackControllerProvider extends BasicAdaptorProvider {
 		t = new Thread("openstackPoller " + l.getName()) {
 			@Override
 			public void run() {
-				ecomplogger.setOperation(OpenStackAdaptorOperationEnum.POLLING);
 				while (true) {
 					Date lastPoll2 = lastPoll.get(l.getName());
 					if (lastPoll2 == null || lastPoll2.getTime() + pollingFrequency < new Date().getTime()) {
 						try {
+							ecomplogger.setOperation(OpenStackAdaptorOperationEnum.POLLING);
 							ecomplogger.newRequestId();
+							ecomplogger.setInstanceId(controller, l);
 							ecomplogger.recordAuditEventStart();
 							openstackPolling(l);
+							ecomplogger.recordAuditEventEnd();
 						} catch (Exception e) {
 							ecomplogger.warn(OpenStackAdaptorMessageEnum.POLLING_FAILED, ManagementServer.object2ref(l));
 							ManagementServerUtils.printStackTrace(e);
-						}
-						finally {
-							ecomplogger.recordAuditEventEnd();
+							ecomplogger.recordAuditEventEnd(StatusCodeEnum.ERROR);
 						}
 					}
 					try {

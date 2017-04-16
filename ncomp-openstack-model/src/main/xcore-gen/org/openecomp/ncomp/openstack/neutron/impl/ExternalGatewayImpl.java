@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.ExternalGatewayImpl#getEnable_snat <em>Enable snat</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.ExternalGatewayImpl#getNetwork_id <em>Network id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -39,13 +39,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeAttachmentImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeAttachmentImpl#getServer_id <em>Server id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeAttachmentImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.VolumeAttachmentImpl#getVolume_id <em>Volume id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

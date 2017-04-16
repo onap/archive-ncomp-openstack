@@ -26,20 +26,27 @@ package org.openecomp.ncomp.servers.openstack;
 
 
 
+
 import java.io.InputStream;
 
 import org.openecomp.ncomp.sirius.manager.IRequestHandler;
+import org.openecomp.ncomp.sirius.manager.ISwaggerHandler;
 import org.openecomp.ncomp.sirius.manager.ISiriusPlugin;
 import org.openecomp.ncomp.sirius.manager.ISiriusServer;
+import org.openecomp.ncomp.sirius.manager.ISiriusProvider;
 import org.openecomp.ncomp.sirius.manager.ManagementServer;
+import org.openecomp.ncomp.sirius.manager.SwaggerUtils;
 import org.openecomp.ncomp.sirius.function.FunctionUtils;
 import org.openecomp.ncomp.component.ApiRequestStatus;
 
 import org.apache.log4j.Logger;
 
-import org.openecomp.logger.EcompLogger;
+import org.openecomp.ncomp.sirius.manager.logging.NcompLogger;
+import org.openecomp.logger.StatusCodeEnum;
+import org.openecomp.logger.EcompException;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.json.JSONObject;
 
 import java.util.Date;
@@ -54,9 +61,9 @@ import org.openecomp.ncomp.openstack.impl.OpenStackControllerImpl;
 
 
 
-public class OsOpenStackController extends OpenStackControllerImpl implements ISiriusPlugin {
+public class OsOpenStackController extends OpenStackControllerImpl implements ISiriusProvider, ISiriusPlugin {
 	public static final Logger logger = Logger.getLogger(OsOpenStackController.class);
-	static final EcompLogger ecomplogger = EcompLogger.getEcompLogger();
+	static final NcompLogger ecomplogger = NcompLogger.getNcompLogger();
 	public OsOpenStackControllerProvider controller;
 	ISiriusServer server;
 
@@ -71,9 +78,8 @@ public class OsOpenStackController extends OpenStackControllerImpl implements IS
 		if (server != null)
 			server.getServer().recordApi(null, this, "uploadOpenstackConfiguration", ApiRequestStatus.START, duration_,cx,loc);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackControllerOperationEnum.uploadOpenstackConfiguration);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackControllerOperationEnum.OpenStackController_uploadOpenstackConfiguration,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackControllerOperationEnum.OpenStackController_uploadOpenstackConfiguration,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.uploadOpenstackConfiguration(cx,loc);
 		}
@@ -82,8 +88,10 @@ public class OsOpenStackController extends OpenStackControllerImpl implements IS
 			if (server != null)
 				server.getServer().recordApi(null, this, "uploadOpenstackConfiguration", ApiRequestStatus.ERROR, duration_,cx,loc);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackControllerMessageEnum.uploadOpenstackConfiguration, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackControllerMessageEnum.REQUEST_FAILED_uploadOpenstackConfiguration, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackControllerMessageEnum.REQUEST_FAILED_uploadOpenstackConfiguration,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackControllerMessageEnum.REQUEST_FAILED_uploadOpenstackConfiguration, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -91,6 +99,8 @@ public class OsOpenStackController extends OpenStackControllerImpl implements IS
 			server.getServer().recordApi(null, this, "uploadOpenstackConfiguration", ApiRequestStatus.OKAY, duration_,cx,loc);
 		
 	}
+
+
 
 
 
@@ -105,7 +115,7 @@ public class OsOpenStackController extends OpenStackControllerImpl implements IS
 	public static void ecoreSetup() {
 		OsOpenStackControllerProvider.ecoreSetup();
 	}
-	public OsOpenStackControllerProvider getSomfProvider() {
+	public OsOpenStackControllerProvider getSiriusProvider() {
 		return controller;
 	}
 }

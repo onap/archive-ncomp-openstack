@@ -31,11 +31,11 @@ package org.openecomp.ncomp.openstack.core;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.core.OpenstackRequestDelete#getObjectType <em>Object Type</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.OpenstackRequestDelete#getObjectName <em>Object Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.core.CorePackage#getOpenstackRequestDelete()
  * @model

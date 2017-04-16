@@ -39,12 +39,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FaultImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FaultImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FaultImpl#getCode <em>Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -49,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateSubnetRequestImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateSubnetRequestImpl#getNetwork_id <em>Network id</em>}</li>
@@ -59,7 +60,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateSubnetRequestImpl#getEnable_dhcp <em>Enable dhcp</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateSubnetRequestImpl#getGateway_ip <em>Gateway ip</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

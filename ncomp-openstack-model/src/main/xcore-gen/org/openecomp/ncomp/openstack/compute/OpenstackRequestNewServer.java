@@ -35,6 +35,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestNewServer#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestNewServer#getHypervisor <em>Hypervisor</em>}</li>
@@ -45,7 +46,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestNewServer#getFloatingIp <em>Floating Ip</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestNewServer#getVmType <em>Vm Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getOpenstackRequestNewServer()
  * @model

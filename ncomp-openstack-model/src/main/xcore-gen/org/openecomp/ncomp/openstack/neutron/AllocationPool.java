@@ -32,11 +32,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.AllocationPool#getStart <em>Start</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.AllocationPool#getEnd <em>End</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getAllocationPool()
  * @model

@@ -32,10 +32,10 @@ import org.openecomp.ncomp.core.NamedEntity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackUser#getPassword <em>Password</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.location.LocationPackage#getOpenStackUser()
  * @model

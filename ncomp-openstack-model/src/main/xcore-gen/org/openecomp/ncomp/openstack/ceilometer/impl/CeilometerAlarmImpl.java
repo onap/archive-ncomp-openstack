@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerAlarmImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerAlarmImpl#getUser_id <em>User id</em>}</li>
@@ -54,7 +55,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerAlarmImpl#getRepeat_actions <em>Repeat actions</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerAlarmImpl#getTime_constraints <em>Time constraints</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

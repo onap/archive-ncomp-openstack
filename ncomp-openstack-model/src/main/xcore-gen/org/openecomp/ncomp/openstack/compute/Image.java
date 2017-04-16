@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Image#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Image#getName <em>Name</em>}</li>
@@ -50,7 +51,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Image#getLinks <em>Links</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Image#getMetadata <em>Metadata</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getImage()
  * @model

@@ -32,12 +32,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Link#getRel <em>Rel</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Link#getHref <em>Href</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Link#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getLink()
  * @model

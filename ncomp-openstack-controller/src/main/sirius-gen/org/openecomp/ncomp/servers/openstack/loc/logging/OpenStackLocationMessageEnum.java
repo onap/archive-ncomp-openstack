@@ -1,25 +1,4 @@
 
-/*-
- * ============LICENSE_START==========================================
- * OPENECOMP - DCAE
- * ===================================================================
- * Copyright (c) 2017 AT&T Intellectual Property. All rights reserved.
- * ===================================================================
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0 
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ============LICENSE_END============================================
- */
-	
-
 package org.openecomp.ncomp.servers.openstack.loc.logging;
 
 import com.att.eelf.i18n.EELFResourceManager;
@@ -28,56 +7,56 @@ import org.openecomp.logger.EcompMessageEnum;
 public enum OpenStackLocationMessageEnum implements EcompMessageEnum {
 
   dummy,
-  createNetwork,
-  createSubnet,
-  createPort,
-  createRouter,
-  deleteNetwork,
-  deleteSubnet,
-  deletePort,
-  deleteRouter,
-  associateFloatingIp,
-  createServer,
-  deleteServer,
-  createKeyPair,
-  delete,
-  createFlavor,
-  createSecurityGroup,
-  serverAction,
-  deployVmType,
-  undeployVmType,
-  deployUser,
-  undeployUser,
-  createAlarm,
-  deleteAlarm,
-  poll,
-  mergeLocation,
-  REMOTE_createNetwork,
-  REMOTE_createSubnet,
-  REMOTE_createPort,
-  REMOTE_createRouter,
-  REMOTE_deleteNetwork,
-  REMOTE_deleteSubnet,
-  REMOTE_deletePort,
-  REMOTE_deleteRouter,
-  REMOTE_associateFloatingIp,
-  REMOTE_createServer,
-  REMOTE_deleteServer,
-  REMOTE_createKeyPair,
-  REMOTE_delete,
-  REMOTE_createFlavor,
-  REMOTE_createSecurityGroup,
-  REMOTE_serverAction,
-  REMOTE_deployVmType,
-  REMOTE_undeployVmType,
-  REMOTE_deployUser,
-  REMOTE_undeployUser,
-  REMOTE_createAlarm,
-  REMOTE_deleteAlarm,
-  REMOTE_poll,
-  REMOTE_mergeLocation;
+  REQUEST_FAILED_createNetwork,
+  REQUEST_FAILED_createSubnet,
+  REQUEST_FAILED_createPort,
+  REQUEST_FAILED_createRouter,
+  REQUEST_FAILED_deleteNetwork,
+  REQUEST_FAILED_deleteSubnet,
+  REQUEST_FAILED_deletePort,
+  REQUEST_FAILED_deleteRouter,
+  REQUEST_FAILED_associateFloatingIp,
+  REQUEST_FAILED_createServer,
+  REQUEST_FAILED_deleteServer,
+  REQUEST_FAILED_createKeyPair,
+  REQUEST_FAILED_delete,
+  REQUEST_FAILED_createFlavor,
+  REQUEST_FAILED_createSecurityGroup,
+  REQUEST_FAILED_serverAction,
+  REQUEST_FAILED_deployVmType,
+  REQUEST_FAILED_undeployVmType,
+  REQUEST_FAILED_deployUser,
+  REQUEST_FAILED_undeployUser,
+  REQUEST_FAILED_createAlarm,
+  REQUEST_FAILED_deleteAlarm,
+  REQUEST_FAILED_poll,
+  REQUEST_FAILED_mergeLocation,
+  REMOTE_CALL_FAILED_createNetwork,
+  REMOTE_CALL_FAILED_createSubnet,
+  REMOTE_CALL_FAILED_createPort,
+  REMOTE_CALL_FAILED_createRouter,
+  REMOTE_CALL_FAILED_deleteNetwork,
+  REMOTE_CALL_FAILED_deleteSubnet,
+  REMOTE_CALL_FAILED_deletePort,
+  REMOTE_CALL_FAILED_deleteRouter,
+  REMOTE_CALL_FAILED_associateFloatingIp,
+  REMOTE_CALL_FAILED_createServer,
+  REMOTE_CALL_FAILED_deleteServer,
+  REMOTE_CALL_FAILED_createKeyPair,
+  REMOTE_CALL_FAILED_delete,
+  REMOTE_CALL_FAILED_createFlavor,
+  REMOTE_CALL_FAILED_createSecurityGroup,
+  REMOTE_CALL_FAILED_serverAction,
+  REMOTE_CALL_FAILED_deployVmType,
+  REMOTE_CALL_FAILED_undeployVmType,
+  REMOTE_CALL_FAILED_deployUser,
+  REMOTE_CALL_FAILED_undeployUser,
+  REMOTE_CALL_FAILED_createAlarm,
+  REMOTE_CALL_FAILED_deleteAlarm,
+  REMOTE_CALL_FAILED_poll,
+  REMOTE_CALL_FAILED_mergeLocation;
 
 	static {
-		EELFResourceManager.loadMessageBundle("org.openecomp.ncomp.servers.openstack.loc.logging.OpenStackLocation");
+		EELFResourceManager.loadMessageBundle("org/openecomp/ncomp/servers/openstack/loc/logging/OpenStackLocation");
 	}
 }

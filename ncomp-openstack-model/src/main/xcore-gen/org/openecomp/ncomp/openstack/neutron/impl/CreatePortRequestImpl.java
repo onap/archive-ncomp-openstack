@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreatePortRequestImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreatePortRequestImpl#getBindingVnicType <em>Binding Vnic Type</em>}</li>
@@ -51,7 +52,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreatePortRequestImpl#getMac_address <em>Mac address</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreatePortRequestImpl#getNetwork_id <em>Network id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

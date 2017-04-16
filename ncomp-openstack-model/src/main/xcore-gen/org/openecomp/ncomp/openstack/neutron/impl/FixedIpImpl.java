@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.FixedIpImpl#getIp_address <em>Ip address</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.FixedIpImpl#getSubnet_id <em>Subnet id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

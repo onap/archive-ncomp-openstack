@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorImpl#getHost_ip <em>Host ip</em>}</li>
@@ -64,7 +65,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorImpl#getFree_ram_mb <em>Free ram mb</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

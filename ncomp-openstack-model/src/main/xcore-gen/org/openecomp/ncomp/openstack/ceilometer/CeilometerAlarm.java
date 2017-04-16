@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerAlarm#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerAlarm#getUser_id <em>User id</em>}</li>
@@ -48,7 +49,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerAlarm#getRepeat_actions <em>Repeat actions</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerAlarm#getTime_constraints <em>Time constraints</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerAlarm()
  * @model abstract="true"

@@ -39,13 +39,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.AddressImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.AddressImpl#getAddr <em>Addr</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.AddressImpl#getOS_EXT_IPS_MAC_mac_addr <em>OS EXT IPS MAC mac addr</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.AddressImpl#getOS_EXT_IPS_type <em>OS EXT IPS type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

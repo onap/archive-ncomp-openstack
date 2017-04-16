@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Flavor#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Flavor#getName <em>Name</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Flavor#isOs_flavor_access_is_public <em>Os flavor access is public</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Flavor#getLinks <em>Links</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getFlavor()
  * @model

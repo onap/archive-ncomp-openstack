@@ -49,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FlavorImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FlavorImpl#getName <em>Name</em>}</li>
@@ -62,7 +63,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FlavorImpl#isOs_flavor_access_is_public <em>Os flavor access is public</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FlavorImpl#getLinks <em>Links</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

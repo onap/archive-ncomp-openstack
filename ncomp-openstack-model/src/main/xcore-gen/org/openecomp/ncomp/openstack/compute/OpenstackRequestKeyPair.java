@@ -33,10 +33,10 @@ import org.openecomp.ncomp.openstack.core.OpenStackRequest;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestKeyPair#getUser <em>User</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getOpenstackRequestKeyPair()
  * @model

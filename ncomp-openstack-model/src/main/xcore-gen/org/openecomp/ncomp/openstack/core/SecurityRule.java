@@ -32,13 +32,13 @@ import org.openecomp.ncomp.core.NamedEntity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.core.SecurityRule#getPortRangeStart <em>Port Range Start</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.SecurityRule#getPortRangeEnd <em>Port Range End</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.SecurityRule#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.SecurityRule#getIpProtocol <em>Ip Protocol</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.core.CorePackage#getSecurityRule()
  * @model

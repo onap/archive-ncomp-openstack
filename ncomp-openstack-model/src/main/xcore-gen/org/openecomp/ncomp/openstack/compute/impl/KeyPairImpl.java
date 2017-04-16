@@ -39,12 +39,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.KeyPairImpl#getPublic_key <em>Public key</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.KeyPairImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.KeyPairImpl#getFingerprint <em>Fingerprint</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

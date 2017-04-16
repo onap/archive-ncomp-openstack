@@ -75,6 +75,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackLocationImpl#getCeilometerAvailableCapabilites <em>Ceilometer Available Capabilites</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackLocationImpl#getCeilometerUnavailableCapabilites <em>Ceilometer Unavailable Capabilites</em>}</li>
@@ -93,7 +94,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackLocationImpl#getFlavors <em>Flavors</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackLocationImpl#getHypervisors <em>Hypervisors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

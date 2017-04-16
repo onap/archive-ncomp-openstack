@@ -39,12 +39,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorCpuTopologyImpl#getCores <em>Cores</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorCpuTopologyImpl#getThreads <em>Threads</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorCpuTopologyImpl#getSockets <em>Sockets</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

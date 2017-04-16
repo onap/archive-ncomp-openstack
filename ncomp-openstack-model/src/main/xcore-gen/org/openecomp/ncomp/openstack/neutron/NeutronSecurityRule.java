@@ -31,6 +31,7 @@ package org.openecomp.ncomp.openstack.neutron;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityRule#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityRule#getDirection <em>Direction</em>}</li>
@@ -43,7 +44,6 @@ package org.openecomp.ncomp.openstack.neutron;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityRule#getSecurity_group_id <em>Security group id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronSecurityRule#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getNeutronSecurityRule()
  * @model

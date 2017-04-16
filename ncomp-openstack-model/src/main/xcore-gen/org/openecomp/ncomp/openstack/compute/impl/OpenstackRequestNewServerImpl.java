@@ -50,6 +50,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.OpenstackRequestNewServerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.OpenstackRequestNewServerImpl#getHypervisor <em>Hypervisor</em>}</li>
@@ -60,7 +61,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.OpenstackRequestNewServerImpl#getFloatingIp <em>Floating Ip</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.OpenstackRequestNewServerImpl#getVmType <em>Vm Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

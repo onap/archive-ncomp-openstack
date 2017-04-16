@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorServiceImpl#getHost <em>Host</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorServiceImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

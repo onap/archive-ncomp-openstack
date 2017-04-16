@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronFloatingIpImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronFloatingIpImpl#getName <em>Name</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronFloatingIpImpl#getTenant_id <em>Tenant id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronFloatingIpImpl#getPort_id <em>Port id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -34,13 +34,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.SecurityGroup#getRules <em>Rules</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.SecurityGroup#getTenant_id <em>Tenant id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.SecurityGroup#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.SecurityGroup#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getSecurityGroup()
  * @model

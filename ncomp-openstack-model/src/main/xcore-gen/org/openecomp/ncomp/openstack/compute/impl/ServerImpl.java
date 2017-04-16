@@ -54,6 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.ServerImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.ServerImpl#getTenant_id <em>Tenant id</em>}</li>
@@ -85,7 +86,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.ServerImpl#getLinks <em>Links</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.ServerImpl#getFault <em>Fault</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

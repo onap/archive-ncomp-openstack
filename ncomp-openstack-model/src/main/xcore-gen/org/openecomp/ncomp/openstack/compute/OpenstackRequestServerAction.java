@@ -32,11 +32,11 @@ import org.openecomp.ncomp.openstack.core.OpenStackRequest;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestServerAction#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestServerAction#getAction <em>Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getOpenstackRequestServerAction()
  * @model

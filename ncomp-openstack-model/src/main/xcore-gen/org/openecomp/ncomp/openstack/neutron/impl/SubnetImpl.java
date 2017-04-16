@@ -49,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.SubnetImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.SubnetImpl#getName <em>Name</em>}</li>
@@ -64,7 +65,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.SubnetImpl#getNetwork_id <em>Network id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.SubnetImpl#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

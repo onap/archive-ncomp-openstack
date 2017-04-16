@@ -255,6 +255,8 @@ public enum OpenStackVersion implements Enumerator {
 	 * Returns the '<em><b>Open Stack Version</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static OpenStackVersion get(String literal) {
@@ -271,6 +273,8 @@ public enum OpenStackVersion implements Enumerator {
 	 * Returns the '<em><b>Open Stack Version</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static OpenStackVersion getByName(String name) {
@@ -287,6 +291,8 @@ public enum OpenStackVersion implements Enumerator {
 	 * Returns the '<em><b>Open Stack Version</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static OpenStackVersion get(int value) {

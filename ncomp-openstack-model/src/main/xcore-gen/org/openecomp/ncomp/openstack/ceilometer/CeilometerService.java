@@ -33,11 +33,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerService#getCeilometerAvailableCapabilites <em>Ceilometer Available Capabilites</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerService#getCeilometerUnavailableCapabilites <em>Ceilometer Unavailable Capabilites</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerService()
  * @model abstract="true"

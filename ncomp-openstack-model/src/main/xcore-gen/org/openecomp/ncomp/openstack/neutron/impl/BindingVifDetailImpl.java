@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.BindingVifDetailImpl#getOvs_hybrid_plug <em>Ovs hybrid plug</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.BindingVifDetailImpl#getPort_filter <em>Port filter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

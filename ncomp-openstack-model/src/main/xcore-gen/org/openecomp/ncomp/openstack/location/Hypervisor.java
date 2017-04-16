@@ -32,6 +32,7 @@ import org.openecomp.ncomp.core.NamedEntity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.Hypervisor#getService <em>Service</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.Hypervisor#getHost_ip <em>Host ip</em>}</li>
@@ -52,7 +53,6 @@ import org.openecomp.ncomp.core.NamedEntity;
  *   <li>{@link org.openecomp.ncomp.openstack.location.Hypervisor#getFree_ram_mb <em>Free ram mb</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.Hypervisor#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.location.LocationPackage#getHypervisor()
  * @model

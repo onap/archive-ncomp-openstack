@@ -38,11 +38,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.OpenstackRequestDeleteImpl#getObjectType <em>Object Type</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.OpenstackRequestDeleteImpl#getObjectName <em>Object Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
