@@ -32,11 +32,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.ExternalGateway#getEnable_snat <em>Enable snat</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.ExternalGateway#getNetwork_id <em>Network id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getExternalGateway()
  * @model

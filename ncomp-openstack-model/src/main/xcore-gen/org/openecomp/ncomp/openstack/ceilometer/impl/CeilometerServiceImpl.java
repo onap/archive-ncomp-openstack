@@ -42,11 +42,11 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerServiceImpl#getCeilometerAvailableCapabilites <em>Ceilometer Available Capabilites</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerServiceImpl#getCeilometerUnavailableCapabilites <em>Ceilometer Unavailable Capabilites</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

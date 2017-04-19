@@ -31,6 +31,7 @@ package org.openecomp.ncomp.openstack.neutron;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateNetworkRequest#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateNetworkRequest#getProviderNetworkType <em>Provider Network Type</em>}</li>
@@ -39,7 +40,6 @@ package org.openecomp.ncomp.openstack.neutron;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateNetworkRequest#getAdmin_state_up <em>Admin state up</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateNetworkRequest#getShared <em>Shared</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getCreateNetworkRequest()
  * @model

@@ -31,6 +31,7 @@ package org.openecomp.ncomp.openstack.neutron;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Router#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Router#getName <em>Name</em>}</li>
@@ -39,7 +40,6 @@ package org.openecomp.ncomp.openstack.neutron;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Router#getExternal_gateway_info <em>External gateway info</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Router#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getRouter()
  * @model

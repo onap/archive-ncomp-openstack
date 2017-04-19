@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerSampleImpl#getCounter_name <em>Counter name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerSampleImpl#getUser_id <em>User id</em>}</li>
@@ -53,7 +54,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerSampleImpl#getCounter_volume <em>Counter volume</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerSampleImpl#getProject_id <em>Project id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

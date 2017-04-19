@@ -47,12 +47,13 @@ public class Generator {
 		String dir = p.getNsURI().replace(p.getNsPrefix(),"") + "servers." + p.getNsPrefix();
 		dir= "src/main/sirius-gen/" + dir.replace('.', '/');
 		ControllerModel m = ControllermodelFactory.eINSTANCE.createControllerModel();
-		m.setTemplateDirectory("../../dcae-org.openecomp.ncomp.sirius.manager/ncomp-sirius-manager-generator/src/main/templates");
+		m.setTemplateDirectory("../../ncomp.sirius.manager/ncomp-sirius-manager-generator/src/main/templates");
 		m.setPrefix("Os");
 		m.setPluginName(p.getNsURI());
 		m.setName("OpenStackController");
 		m.setTitle("OpenStack Controller");
 		ControllerGenerator g = new ControllerGenerator(o,m); 
+		g.setVersion("ONAP-R2");
 		EObject loc =LocationFactory.eINSTANCE.createOpenStackLocation();
 		g.addObject("loc",loc,m);
 		g.setEnableIRequestHandler(false);
@@ -62,7 +63,6 @@ public class Generator {
 		//g.addApi("e",e,m);
 		//g.addFactory("org.openecomp.ncomp.sirius.servers.openstack.OsOpenstackFactory");
 		g.generate(dir);
-		g.generateAnt("./ant.xml",true,true);
 		g.generateScripts("src/main/server-gen/bin","openstack-controller"); 
 		String pName = p.getNsURI().replaceAll(p.getNsPrefix()+'$',"") + "servers." + p.getNsPrefix() +".logging";
 		YamlToJava.convert("src/main/resources/OpenStackAdaptor.yaml", dir + "/logging", pName);

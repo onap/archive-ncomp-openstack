@@ -44,10 +44,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.OpenstackRequestFlavorImpl#getVmType <em>Vm Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

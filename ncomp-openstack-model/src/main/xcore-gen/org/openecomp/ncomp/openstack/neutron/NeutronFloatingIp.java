@@ -31,6 +31,7 @@ package org.openecomp.ncomp.openstack.neutron;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronFloatingIp#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronFloatingIp#getName <em>Name</em>}</li>
@@ -42,7 +43,6 @@ package org.openecomp.ncomp.openstack.neutron;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronFloatingIp#getTenant_id <em>Tenant id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.NeutronFloatingIp#getPort_id <em>Port id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getNeutronFloatingIp()
  * @model

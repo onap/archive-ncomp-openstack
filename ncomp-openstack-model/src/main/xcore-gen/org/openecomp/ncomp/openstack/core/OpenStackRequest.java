@@ -32,10 +32,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.core.OpenStackRequest#getProjectName <em>Project Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.core.CorePackage#getOpenStackRequest()
  * @model abstract="true"

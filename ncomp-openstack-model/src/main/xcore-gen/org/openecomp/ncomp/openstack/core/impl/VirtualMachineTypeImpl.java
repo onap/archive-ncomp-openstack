@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.VirtualMachineTypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.VirtualMachineTypeImpl#getNumberOfCores <em>Number Of Cores</em>}</li>
@@ -58,7 +59,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.VirtualMachineTypeImpl#getIncomingSecurityRules <em>Incoming Security Rules</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.VirtualMachineTypeImpl#getOutboundSecurityRules <em>Outbound Security Rules</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

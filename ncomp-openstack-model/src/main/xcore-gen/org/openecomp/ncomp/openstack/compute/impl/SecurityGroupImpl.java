@@ -50,13 +50,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityGroupImpl#getRules <em>Rules</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityGroupImpl#getTenant_id <em>Tenant id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityGroupImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityGroupImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

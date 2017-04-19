@@ -41,13 +41,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.SecurityRuleImpl#getPortRangeStart <em>Port Range Start</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.SecurityRuleImpl#getPortRangeEnd <em>Port Range End</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.SecurityRuleImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.core.impl.SecurityRuleImpl#getIpProtocol <em>Ip Protocol</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

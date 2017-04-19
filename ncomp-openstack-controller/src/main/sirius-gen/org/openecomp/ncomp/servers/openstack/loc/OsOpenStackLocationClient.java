@@ -30,6 +30,8 @@ import org.openecomp.ncomp.sirius.manager.GenericHttpClient;
 import org.apache.log4j.Logger;
 
 import org.openecomp.logger.EcompLogger;
+import org.openecomp.logger.StatusCodeEnum;
+import org.openecomp.logger.EcompException;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -55,33 +57,37 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 		OsOpenStackController.ecoreSetup(); 
 		client = new GenericHttpClient(file,name);
 		client.add("/loc", this);
+		client.setVersion("ONAP-R2");
 	}
 
 	public OsOpenStackLocationClient(String file, String name1, String name2) {
 		HighAvailabilityClient client1 = new HighAvailabilityClient(file,name1,name2);
 		client = client1.all; // requests should be forwarded to all.
 		client.add("/loc", this);
+		client.setVersion("ONAP-R2");
 	}
 	
 	public OsOpenStackLocationClient(AbstractClient c) {
 		client = c;
 		client.add("/resources", this);
+		client.setVersion("ONAP-R2");
 	}
 
 
 
 	@Override
 	public void poll() {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_poll);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_poll,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "poll", null);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_poll, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@poll: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_poll, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_poll,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_poll,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -89,16 +95,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void mergeLocation(org.openecomp.ncomp.openstack.location.OpenStackLocation loc) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_mergeLocation);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_mergeLocation,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "mergeLocation", null, loc);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_mergeLocation, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@mergeLocation: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_mergeLocation, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_mergeLocation,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_mergeLocation,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -106,16 +113,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public org.openecomp.ncomp.openstack.neutron.Network createNetwork(org.openecomp.ncomp.openstack.neutron.CreateNetworkRequest request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createNetwork);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createNetwork,client.getRemote());
 		org.openecomp.ncomp.openstack.neutron.Network res;
 		try {
 		  res = (org.openecomp.ncomp.openstack.neutron.Network) client.operationPath("/loc", c, "createNetwork", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createNetwork, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createNetwork: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createNetwork, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createNetwork,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createNetwork,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		return res;
@@ -123,16 +131,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public org.openecomp.ncomp.openstack.neutron.Subnet createSubnet(org.openecomp.ncomp.openstack.neutron.CreateSubnetRequest request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createSubnet);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createSubnet,client.getRemote());
 		org.openecomp.ncomp.openstack.neutron.Subnet res;
 		try {
 		  res = (org.openecomp.ncomp.openstack.neutron.Subnet) client.operationPath("/loc", c, "createSubnet", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createSubnet, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createSubnet: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createSubnet, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createSubnet,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createSubnet,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		return res;
@@ -140,16 +149,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public org.openecomp.ncomp.openstack.neutron.Port createPort(org.openecomp.ncomp.openstack.neutron.CreatePortRequest request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createPort);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createPort,client.getRemote());
 		org.openecomp.ncomp.openstack.neutron.Port res;
 		try {
 		  res = (org.openecomp.ncomp.openstack.neutron.Port) client.operationPath("/loc", c, "createPort", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createPort, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createPort: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createPort, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createPort,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createPort,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		return res;
@@ -157,16 +167,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public org.openecomp.ncomp.openstack.neutron.Router createRouter(org.openecomp.ncomp.openstack.neutron.CreateRouterRequest request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createRouter);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createRouter,client.getRemote());
 		org.openecomp.ncomp.openstack.neutron.Router res;
 		try {
 		  res = (org.openecomp.ncomp.openstack.neutron.Router) client.operationPath("/loc", c, "createRouter", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createRouter, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createRouter: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createRouter, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createRouter,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createRouter,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		return res;
@@ -174,16 +185,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deleteNetwork(java.lang.String projectName, java.lang.String name) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deleteNetwork);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteNetwork,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deleteNetwork", null, projectName,name);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deleteNetwork, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deleteNetwork: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteNetwork, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteNetwork,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteNetwork,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -191,16 +203,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deleteSubnet(java.lang.String projectName, java.lang.String name) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deleteSubnet);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteSubnet,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deleteSubnet", null, projectName,name);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deleteSubnet, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deleteSubnet: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteSubnet, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteSubnet,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteSubnet,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -208,16 +221,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deletePort(java.lang.String projectName, java.lang.String name) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deletePort);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deletePort,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deletePort", null, projectName,name);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deletePort, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deletePort: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deletePort, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deletePort,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deletePort,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -225,16 +239,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deleteRouter(java.lang.String projectName, java.lang.String name) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deleteRouter);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteRouter,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deleteRouter", null, projectName,name);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deleteRouter, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deleteRouter: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteRouter, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteRouter,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteRouter,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -242,16 +257,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void associateFloatingIp(java.lang.String projectName, java.lang.String ipId, java.lang.String portId) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_associateFloatingIp);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_associateFloatingIp,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "associateFloatingIp", null, projectName,ipId,portId);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_associateFloatingIp, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@associateFloatingIp: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_associateFloatingIp, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_associateFloatingIp,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_associateFloatingIp,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -259,16 +275,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void createServer(org.openecomp.ncomp.openstack.compute.OpenstackRequestNewServer request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createServer);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createServer,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "createServer", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createServer, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createServer: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createServer, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createServer,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createServer,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -276,16 +293,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deleteServer(java.lang.String projectName, java.lang.String name) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deleteServer);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteServer,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deleteServer", null, projectName,name);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deleteServer, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deleteServer: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteServer, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteServer,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteServer,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -293,16 +311,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void createKeyPair(org.openecomp.ncomp.openstack.compute.OpenstackRequestKeyPair request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createKeyPair);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createKeyPair,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "createKeyPair", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createKeyPair, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createKeyPair: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createKeyPair, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createKeyPair,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createKeyPair,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -310,16 +329,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void delete(org.openecomp.ncomp.openstack.core.OpenstackRequestDelete request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_delete);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_delete,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "delete", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_delete, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@delete: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_delete, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_delete,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_delete,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -327,16 +347,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void createFlavor(org.openecomp.ncomp.openstack.compute.OpenstackRequestFlavor request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createFlavor);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createFlavor,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "createFlavor", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createFlavor, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createFlavor: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createFlavor, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createFlavor,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createFlavor,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -344,16 +365,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void createSecurityGroup(org.openecomp.ncomp.openstack.compute.OpenstackRequestSecurityGroup request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createSecurityGroup);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createSecurityGroup,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "createSecurityGroup", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createSecurityGroup, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createSecurityGroup: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createSecurityGroup, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createSecurityGroup,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createSecurityGroup,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -361,16 +383,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void serverAction(org.openecomp.ncomp.openstack.compute.OpenstackRequestServerAction request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_serverAction);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_serverAction,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "serverAction", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_serverAction, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@serverAction: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_serverAction, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_serverAction,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_serverAction,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -378,16 +401,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deployVmType(java.lang.String vmTypeName, java.lang.String projectName) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deployVmType);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deployVmType,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deployVmType", null, vmTypeName,projectName);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deployVmType, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deployVmType: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deployVmType, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deployVmType,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deployVmType,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -395,16 +419,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void undeployVmType(java.lang.String vmTypeName, java.lang.String projectName) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_undeployVmType);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_undeployVmType,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "undeployVmType", null, vmTypeName,projectName);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_undeployVmType, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@undeployVmType: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_undeployVmType, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_undeployVmType,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_undeployVmType,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -412,16 +437,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deployUser(org.openecomp.ncomp.core.User user, java.lang.String projectName) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deployUser);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deployUser,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deployUser", null, user,projectName);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deployUser, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deployUser: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deployUser, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deployUser,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deployUser,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -429,16 +455,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void undeployUser(org.openecomp.ncomp.core.User user, java.lang.String projectName) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_undeployUser);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_undeployUser,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "undeployUser", null, user,projectName);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_undeployUser, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@undeployUser: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_undeployUser, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_undeployUser,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_undeployUser,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -446,16 +473,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public org.openecomp.ncomp.openstack.ceilometer.CeilometerAlarm createAlarm(org.openecomp.ncomp.openstack.ceilometer.CreateAlarmRequest request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createAlarm);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createAlarm,client.getRemote());
 		org.openecomp.ncomp.openstack.ceilometer.CeilometerAlarm res;
 		try {
 		  res = (org.openecomp.ncomp.openstack.ceilometer.CeilometerAlarm) client.operationPath("/loc", c, "createAlarm", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createAlarm, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createAlarm: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createAlarm, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createAlarm,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createAlarm,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		return res;
@@ -463,16 +491,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public void deleteAlarm(java.lang.String projectName, java.lang.String name) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_deleteAlarm);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteAlarm,client.getRemote());
 		
 		try {
 		  client.operationPath("/loc", c, "deleteAlarm", null, projectName,name);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_deleteAlarm, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@deleteAlarm: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteAlarm, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteAlarm,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_deleteAlarm,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		
@@ -480,16 +509,17 @@ public class OsOpenStackLocationClient extends OpenStackLocationImpl {
 
 	@Override
 	public EList<org.openecomp.ncomp.openstack.ceilometer.CeilometerSample> createAlarm(org.openecomp.ncomp.openstack.ceilometer.SampleRequest request) {
-		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.REMOTE_createAlarm);
+		EClass c = LocationPackage.eINSTANCE.getOpenStackLocation(); 
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createAlarm,client.getRemote());
 		EList<org.openecomp.ncomp.openstack.ceilometer.CeilometerSample> res;
 		try {
 		  res = (EList<org.openecomp.ncomp.openstack.ceilometer.CeilometerSample>) client.operationPath("/loc", c, "createAlarm", null, request);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_createAlarm, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@createAlarm: " + e);
+			ecomplogger.warn(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createAlarm, e.toString());
+			EcompException e1 = EcompException.create(OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createAlarm,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackLocationMessageEnum.REMOTE_CALL_FAILED_createAlarm,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		return res;

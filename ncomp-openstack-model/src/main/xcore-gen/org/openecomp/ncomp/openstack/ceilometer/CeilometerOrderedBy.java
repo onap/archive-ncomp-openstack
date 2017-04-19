@@ -32,11 +32,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerOrderedBy#getField <em>Field</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerOrderedBy#getDirection <em>Direction</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerOrderedBy()
  * @model

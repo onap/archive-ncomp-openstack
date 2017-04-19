@@ -41,6 +41,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackLocation#getVersion <em>Version</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackLocation#isRemoteLocation <em>Remote Location</em>}</li>
@@ -57,7 +58,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackLocation#getFlavors <em>Flavors</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackLocation#getHypervisors <em>Hypervisors</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.location.LocationPackage#getOpenStackLocation()
  * @model

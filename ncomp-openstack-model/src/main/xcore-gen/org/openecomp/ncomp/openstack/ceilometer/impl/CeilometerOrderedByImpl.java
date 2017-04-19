@@ -39,11 +39,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerOrderedByImpl#getField <em>Field</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerOrderedByImpl#getDirection <em>Direction</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

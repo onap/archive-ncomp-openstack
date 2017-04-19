@@ -1,267 +1,219 @@
 operations:
-  createNetwork: {}
-  createSubnet: {}
-  createPort: {}
-  createRouter: {}
-  deleteNetwork: {}
-  deleteSubnet: {}
-  deletePort: {}
-  deleteRouter: {}
-  associateFloatingIp: {}
-  createServer: {}
-  deleteServer: {}
-  createKeyPair: {}
-  delete: {}
-  createFlavor: {}
-  createSecurityGroup: {}
-  serverAction: {}
-  deployVmType: {}
-  undeployVmType: {}
-  deployUser: {}
-  undeployUser: {}
-  createAlarm: {}
-  deleteAlarm: {}
-  poll: {}
-  mergeLocation: {}
-  REMOTE_createNetwork:
-    decription: Remote call createNetwork
-  REMOTE_createSubnet:
-    decription: Remote call createSubnet
-  REMOTE_createPort:
-    decription: Remote call createPort
-  REMOTE_createRouter:
-    decription: Remote call createRouter
-  REMOTE_deleteNetwork:
-    decription: Remote call deleteNetwork
-  REMOTE_deleteSubnet:
-    decription: Remote call deleteSubnet
-  REMOTE_deletePort:
-    decription: Remote call deletePort
-  REMOTE_deleteRouter:
-    decription: Remote call deleteRouter
-  REMOTE_associateFloatingIp:
-    decription: Remote call associateFloatingIp
-  REMOTE_createServer:
-    decription: Remote call createServer
-  REMOTE_deleteServer:
-    decription: Remote call deleteServer
-  REMOTE_createKeyPair:
-    decription: Remote call createKeyPair
-  REMOTE_delete:
-    decription: Remote call delete
-  REMOTE_createFlavor:
-    decription: Remote call createFlavor
-  REMOTE_createSecurityGroup:
-    decription: Remote call createSecurityGroup
-  REMOTE_serverAction:
-    decription: Remote call serverAction
-  REMOTE_deployVmType:
-    decription: Remote call deployVmType
-  REMOTE_undeployVmType:
-    decription: Remote call undeployVmType
-  REMOTE_deployUser:
-    decription: Remote call deployUser
-  REMOTE_undeployUser:
-    decription: Remote call undeployUser
-  REMOTE_createAlarm:
-    decription: Remote call createAlarm
-  REMOTE_deleteAlarm:
-    decription: Remote call deleteAlarm
-  REMOTE_poll:
-    decription: Remote call poll
-  REMOTE_mergeLocation:
-    decription: Remote call mergeLocation
+  OpenStackLocation@createNetwork: {}
+  OpenStackLocation@createSubnet: {}
+  OpenStackLocation@createPort: {}
+  OpenStackLocation@createRouter: {}
+  OpenStackLocation@deleteNetwork: {}
+  OpenStackLocation@deleteSubnet: {}
+  OpenStackLocation@deletePort: {}
+  OpenStackLocation@deleteRouter: {}
+  OpenStackLocation@associateFloatingIp: {}
+  OpenStackLocation@createServer: {}
+  OpenStackLocation@deleteServer: {}
+  OpenStackLocation@createKeyPair: {}
+  OpenStackLocation@delete: {}
+  OpenStackLocation@createFlavor: {}
+  OpenStackLocation@createSecurityGroup: {}
+  OpenStackLocation@serverAction: {}
+  OpenStackLocation@deployVmType: {}
+  OpenStackLocation@undeployVmType: {}
+  OpenStackLocation@deployUser: {}
+  OpenStackLocation@undeployUser: {}
+  OpenStackLocation@createAlarm: {}
+  OpenStackLocation@deleteAlarm: {}
+  OpenStackLocation@poll: {}
+  OpenStackLocation@mergeLocation: {}
 messages:
   dummy: {}
-  createNetwork:
-    errorCode: createNetwork-FAILED-5001W
+  REQUEST-FAILED-createNetwork:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createSubnet:
-    errorCode: createSubnet-FAILED-5001W
+  REQUEST-FAILED-createSubnet:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createPort:
-    errorCode: createPort-FAILED-5001W
+  REQUEST-FAILED-createPort:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createRouter:
-    errorCode: createRouter-FAILED-5001W
+  REQUEST-FAILED-createRouter:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deleteNetwork:
-    errorCode: deleteNetwork-FAILED-5001W
+  REQUEST-FAILED-deleteNetwork:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deleteSubnet:
-    errorCode: deleteSubnet-FAILED-5001W
+  REQUEST-FAILED-deleteSubnet:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deletePort:
-    errorCode: deletePort-FAILED-5001W
+  REQUEST-FAILED-deletePort:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deleteRouter:
-    errorCode: deleteRouter-FAILED-5001W
+  REQUEST-FAILED-deleteRouter:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  associateFloatingIp:
-    errorCode: associateFloatingIp-FAILED-5001W
+  REQUEST-FAILED-associateFloatingIp:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createServer:
-    errorCode: createServer-FAILED-5001W
+  REQUEST-FAILED-createServer:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deleteServer:
-    errorCode: deleteServer-FAILED-5001W
+  REQUEST-FAILED-deleteServer:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createKeyPair:
-    errorCode: createKeyPair-FAILED-5001W
+  REQUEST-FAILED-createKeyPair:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  delete:
-    errorCode: delete-FAILED-5001W
+  REQUEST-FAILED-delete:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createFlavor:
-    errorCode: createFlavor-FAILED-5001W
+  REQUEST-FAILED-createFlavor:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createSecurityGroup:
-    errorCode: createSecurityGroup-FAILED-5001W
+  REQUEST-FAILED-createSecurityGroup:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  serverAction:
-    errorCode: serverAction-FAILED-5001W
+  REQUEST-FAILED-serverAction:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deployVmType:
-    errorCode: deployVmType-FAILED-5001W
+  REQUEST-FAILED-deployVmType:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  undeployVmType:
-    errorCode: undeployVmType-FAILED-5001W
+  REQUEST-FAILED-undeployVmType:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deployUser:
-    errorCode: deployUser-FAILED-5001W
+  REQUEST-FAILED-deployUser:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  undeployUser:
-    errorCode: undeployUser-FAILED-5001W
+  REQUEST-FAILED-undeployUser:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  createAlarm:
-    errorCode: createAlarm-FAILED-5001W
+  REQUEST-FAILED-createAlarm:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  deleteAlarm:
-    errorCode: deleteAlarm-FAILED-5001W
+  REQUEST-FAILED-deleteAlarm:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  poll:
-    errorCode: poll-FAILED-5001W
+  REQUEST-FAILED-poll:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  mergeLocation:
-    errorCode: mergeLocation-FAILED-5001W
+  REQUEST-FAILED-mergeLocation:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Operation Failed with Exception
-  REMOTE_createNetwork:
-    errorCode: REMOTE-createNetwork-FAILED-5001W
+  REMOTE-CALL-FAILED-createNetwork:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createSubnet:
-    errorCode: REMOTE-createSubnet-FAILED-5001W
+  REMOTE-CALL-FAILED-createSubnet:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createPort:
-    errorCode: REMOTE-createPort-FAILED-5001W
+  REMOTE-CALL-FAILED-createPort:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createRouter:
-    errorCode: REMOTE-createRouter-FAILED-5001W
+  REMOTE-CALL-FAILED-createRouter:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deleteNetwork:
-    errorCode: REMOTE-deleteNetwork-FAILED-5001W
+  REMOTE-CALL-FAILED-deleteNetwork:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deleteSubnet:
-    errorCode: REMOTE-deleteSubnet-FAILED-5001W
+  REMOTE-CALL-FAILED-deleteSubnet:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deletePort:
-    errorCode: REMOTE-deletePort-FAILED-5001W
+  REMOTE-CALL-FAILED-deletePort:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deleteRouter:
-    errorCode: REMOTE-deleteRouter-FAILED-5001W
+  REMOTE-CALL-FAILED-deleteRouter:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_associateFloatingIp:
-    errorCode: REMOTE-associateFloatingIp-FAILED-5001W
+  REMOTE-CALL-FAILED-associateFloatingIp:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createServer:
-    errorCode: REMOTE-createServer-FAILED-5001W
+  REMOTE-CALL-FAILED-createServer:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deleteServer:
-    errorCode: REMOTE-deleteServer-FAILED-5001W
+  REMOTE-CALL-FAILED-deleteServer:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createKeyPair:
-    errorCode: REMOTE-createKeyPair-FAILED-5001W
+  REMOTE-CALL-FAILED-createKeyPair:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_delete:
-    errorCode: REMOTE-delete-FAILED-5001W
+  REMOTE-CALL-FAILED-delete:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createFlavor:
-    errorCode: REMOTE-createFlavor-FAILED-5001W
+  REMOTE-CALL-FAILED-createFlavor:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createSecurityGroup:
-    errorCode: REMOTE-createSecurityGroup-FAILED-5001W
+  REMOTE-CALL-FAILED-createSecurityGroup:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_serverAction:
-    errorCode: REMOTE-serverAction-FAILED-5001W
+  REMOTE-CALL-FAILED-serverAction:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deployVmType:
-    errorCode: REMOTE-deployVmType-FAILED-5001W
+  REMOTE-CALL-FAILED-deployVmType:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_undeployVmType:
-    errorCode: REMOTE-undeployVmType-FAILED-5001W
+  REMOTE-CALL-FAILED-undeployVmType:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deployUser:
-    errorCode: REMOTE-deployUser-FAILED-5001W
+  REMOTE-CALL-FAILED-deployUser:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_undeployUser:
-    errorCode: REMOTE-undeployUser-FAILED-5001W
+  REMOTE-CALL-FAILED-undeployUser:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_createAlarm:
-    errorCode: REMOTE-createAlarm-FAILED-5001W
+  REMOTE-CALL-FAILED-createAlarm:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_deleteAlarm:
-    errorCode: REMOTE-deleteAlarm-FAILED-5001W
+  REMOTE-CALL-FAILED-deleteAlarm:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_poll:
-    errorCode: REMOTE-poll-FAILED-5001W
+  REMOTE-CALL-FAILED-poll:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception
-  REMOTE_mergeLocation:
-    errorCode: REMOTE-mergeLocation-FAILED-5001W
+  REMOTE-CALL-FAILED-mergeLocation:
+    errorCode: 4001W
     messageFormat: '{0}'
     description: Remote Operation Failed with Exception

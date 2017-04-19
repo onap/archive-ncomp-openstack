@@ -32,13 +32,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Address#getVersion <em>Version</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Address#getAddr <em>Addr</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Address#getOS_EXT_IPS_MAC_mac_addr <em>OS EXT IPS MAC mac addr</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Address#getOS_EXT_IPS_type <em>OS EXT IPS type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getAddress()
  * @model

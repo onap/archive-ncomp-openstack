@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Volume#getStatus <em>Status</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Volume#getDisplay_name <em>Display name</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Volume#getSnapshot_id <em>Snapshot id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.Volume#getDisplay_description <em>Display description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getVolume()
  * @model

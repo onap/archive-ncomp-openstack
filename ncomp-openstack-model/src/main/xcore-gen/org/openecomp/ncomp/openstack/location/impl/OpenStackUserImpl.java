@@ -40,10 +40,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackUserImpl#getPassword <em>Password</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

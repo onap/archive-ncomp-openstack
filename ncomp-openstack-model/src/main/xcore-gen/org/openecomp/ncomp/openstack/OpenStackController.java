@@ -37,12 +37,12 @@ import org.json.JSONObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.OpenStackController#getLocations <em>Locations</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.OpenStackController#getVmTypes <em>Vm Types</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.OpenStackController#getUsers <em>Users</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.OpenstackPackage#getOpenStackController()
  * @model

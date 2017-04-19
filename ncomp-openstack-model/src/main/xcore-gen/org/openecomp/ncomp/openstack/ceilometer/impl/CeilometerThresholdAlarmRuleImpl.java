@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerThresholdAlarmRuleImpl#getMeter_name <em>Meter name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerThresholdAlarmRuleImpl#getEvaluation_periods <em>Evaluation periods</em>}</li>
@@ -55,7 +56,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerThresholdAlarmRuleImpl#getComparison_operator <em>Comparison operator</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerThresholdAlarmRuleImpl#getExclude_outliers <em>Exclude outliers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

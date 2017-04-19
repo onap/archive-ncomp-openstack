@@ -32,12 +32,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.HypervisorCpuTopology#getCores <em>Cores</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.HypervisorCpuTopology#getThreads <em>Threads</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.HypervisorCpuTopology#getSockets <em>Sockets</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.location.LocationPackage#getHypervisorCpuTopology()
  * @model

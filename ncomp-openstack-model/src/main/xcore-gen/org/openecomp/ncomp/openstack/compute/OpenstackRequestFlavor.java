@@ -33,10 +33,10 @@ import org.openecomp.ncomp.openstack.core.VirtualMachineType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.OpenstackRequestFlavor#getVmType <em>Vm Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getOpenstackRequestFlavor()
  * @model

@@ -45,12 +45,12 @@ import org.json.JSONObject;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.impl.OpenStackControllerImpl#getLocations <em>Locations</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.impl.OpenStackControllerImpl#getVmTypes <em>Vm Types</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.impl.OpenStackControllerImpl#getUsers <em>Users</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

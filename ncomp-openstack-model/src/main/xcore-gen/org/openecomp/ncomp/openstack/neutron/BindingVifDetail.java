@@ -32,11 +32,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.BindingVifDetail#getOvs_hybrid_plug <em>Ovs hybrid plug</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.BindingVifDetail#getPort_filter <em>Port filter</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getBindingVifDetail()
  * @model

@@ -34,12 +34,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerQuery#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerQuery#getOrderby <em>Orderby</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerQuery#getLimit <em>Limit</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerQuery()
  * @model

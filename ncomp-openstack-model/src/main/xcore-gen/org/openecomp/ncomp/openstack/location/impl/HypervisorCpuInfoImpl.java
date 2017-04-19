@@ -48,6 +48,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorCpuInfoImpl#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorCpuInfoImpl#getModel <em>Model</em>}</li>
@@ -55,7 +56,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorCpuInfoImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.HypervisorCpuInfoImpl#getTopology <em>Topology</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

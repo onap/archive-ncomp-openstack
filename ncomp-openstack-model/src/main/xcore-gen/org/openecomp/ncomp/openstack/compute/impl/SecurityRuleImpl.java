@@ -43,6 +43,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityRuleImpl#getFrom_port <em>From port</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityRuleImpl#getGroup <em>Group</em>}</li>
@@ -52,7 +53,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityRuleImpl#getIp_range <em>Ip range</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.SecurityRuleImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

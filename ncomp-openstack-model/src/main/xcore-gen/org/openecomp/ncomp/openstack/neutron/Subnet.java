@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Subnet#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Subnet#getName <em>Name</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Subnet#getNetwork_id <em>Network id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Subnet#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getSubnet()
  * @model

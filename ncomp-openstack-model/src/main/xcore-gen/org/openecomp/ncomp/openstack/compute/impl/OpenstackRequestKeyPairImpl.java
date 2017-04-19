@@ -39,10 +39,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.OpenstackRequestKeyPairImpl#getUser <em>User</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

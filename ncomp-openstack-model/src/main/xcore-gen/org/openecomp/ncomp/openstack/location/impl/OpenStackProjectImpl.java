@@ -72,6 +72,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackProjectImpl#getAlarms <em>Alarms</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackProjectImpl#getResources <em>Resources</em>}</li>
@@ -97,7 +98,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackProjectImpl#getSecurity_groups <em>Security groups</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.impl.OpenStackProjectImpl#getFloatingips <em>Floatingips</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

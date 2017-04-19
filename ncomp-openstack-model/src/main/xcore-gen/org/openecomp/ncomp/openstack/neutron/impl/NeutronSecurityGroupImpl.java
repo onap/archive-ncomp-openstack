@@ -48,6 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityGroupImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityGroupImpl#getName <em>Name</em>}</li>
@@ -55,7 +56,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityGroupImpl#getSecurity_group_rules <em>Security group rules</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityGroupImpl#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

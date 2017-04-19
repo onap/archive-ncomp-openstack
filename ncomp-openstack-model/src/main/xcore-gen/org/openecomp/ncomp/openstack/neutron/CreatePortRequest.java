@@ -33,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreatePortRequest#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreatePortRequest#getBindingVnicType <em>Binding Vnic Type</em>}</li>
@@ -42,7 +43,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreatePortRequest#getMac_address <em>Mac address</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreatePortRequest#getNetwork_id <em>Network id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getCreatePortRequest()
  * @model

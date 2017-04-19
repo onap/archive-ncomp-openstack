@@ -49,6 +49,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackProject#getID <em>ID</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackProject#getAdminUser <em>Admin User</em>}</li>
@@ -71,7 +72,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackProject#getSecurity_groups <em>Security groups</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.location.OpenStackProject#getFloatingips <em>Floatingips</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.location.LocationPackage#getOpenStackProject()
  * @model

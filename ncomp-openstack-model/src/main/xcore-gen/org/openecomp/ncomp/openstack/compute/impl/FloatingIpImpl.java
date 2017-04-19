@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FloatingIpImpl#getInstance_id <em>Instance id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FloatingIpImpl#getIp <em>Ip</em>}</li>
@@ -46,7 +47,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FloatingIpImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.FloatingIpImpl#getPool <em>Pool</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

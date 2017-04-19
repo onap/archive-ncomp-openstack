@@ -30,6 +30,8 @@ import org.openecomp.ncomp.sirius.manager.GenericHttpClient;
 import org.apache.log4j.Logger;
 
 import org.openecomp.logger.EcompLogger;
+import org.openecomp.logger.StatusCodeEnum;
+import org.openecomp.logger.EcompException;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -54,33 +56,37 @@ public class OsOpenStackControllerClient extends OpenStackControllerImpl {
 		OsOpenStackController.ecoreSetup(); 
 		client = new GenericHttpClient(file,name);
 		client.add("/resources", this);
+		client.setVersion("ONAP-R2");
 	}
 
 	public OsOpenStackControllerClient(String file, String name1, String name2) {
 		HighAvailabilityClient client1 = new HighAvailabilityClient(file,name1,name2);
 		client = client1.all; // requests should be forwarded to all.
 		client.add("/resources", this);
+		client.setVersion("ONAP-R2");
 	}
 	
 	public OsOpenStackControllerClient(AbstractClient c) {
 		client = c;
 		client.add("/resources", this);
+		client.setVersion("ONAP-R2");
 	}
 
 
 
 	@Override
 	public void uploadOpenstackConfiguration(org.json.JSONObject cx, org.openecomp.ncomp.openstack.location.OpenStackLocation loc) {
-		EClass c = OpenstackPackage.eINSTANCE.getOpenStackController(); //foo
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackControllerOperationEnum.REMOTE_uploadOpenstackConfiguration);
+		EClass c = OpenstackPackage.eINSTANCE.getOpenStackController(); 
+		ecomplogger.recordMetricEventStart(OpenStackControllerOperationEnum.OpenStackController_uploadOpenstackConfiguration,client.getRemote());
 		
 		try {
 		  client.operationPath("/resources", c, "uploadOpenstackConfiguration", cx != null && cx.has("timeout") ? cx.getLong("timeout") : null, cx,loc);
 		}
 		catch (Exception e) {
-			ecomplogger.warn(OpenStackControllerMessageEnum.REMOTE_uploadOpenstackConfiguration, e.toString());
-			throw new RuntimeException("remote call failed: " + client.getRemote() + "@uploadOpenstackConfiguration: " + e);
+			ecomplogger.warn(OpenStackControllerMessageEnum.REMOTE_CALL_FAILED_uploadOpenstackConfiguration, e.toString());
+			EcompException e1 = EcompException.create(OpenStackControllerMessageEnum.REMOTE_CALL_FAILED_uploadOpenstackConfiguration,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR,OpenStackControllerMessageEnum.REMOTE_CALL_FAILED_uploadOpenstackConfiguration,e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		

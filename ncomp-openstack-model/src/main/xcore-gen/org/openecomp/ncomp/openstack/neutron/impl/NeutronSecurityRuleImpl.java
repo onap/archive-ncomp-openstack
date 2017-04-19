@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityRuleImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityRuleImpl#getDirection <em>Direction</em>}</li>
@@ -50,7 +51,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityRuleImpl#getSecurity_group_id <em>Security group id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.NeutronSecurityRuleImpl#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

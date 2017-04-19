@@ -32,12 +32,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.KeyPair#getPublic_key <em>Public key</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.KeyPair#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.KeyPair#getFingerprint <em>Fingerprint</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getKeyPair()
  * @model

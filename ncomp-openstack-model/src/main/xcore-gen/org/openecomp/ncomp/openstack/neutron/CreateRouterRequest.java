@@ -33,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateRouterRequest#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateRouterRequest#getAdmin_state_up <em>Admin state up</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateRouterRequest#getPorts <em>Ports</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.CreateRouterRequest#getSubnets <em>Subnets</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getCreateRouterRequest()
  * @model

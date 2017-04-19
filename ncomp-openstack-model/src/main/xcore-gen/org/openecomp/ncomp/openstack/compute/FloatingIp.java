@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.FloatingIp#getInstance_id <em>Instance id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.FloatingIp#getIp <em>Ip</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openecomp.ncomp.openstack.compute.FloatingIp#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.FloatingIp#getPool <em>Pool</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.compute.ComputePackage#getFloatingIp()
  * @model

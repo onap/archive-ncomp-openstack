@@ -34,13 +34,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerFilter#getOperation <em>Operation</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerFilter#getValue <em>Value</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerFilter#getField <em>Field</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerFilter#getFilters <em>Filters</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerFilter()
  * @model

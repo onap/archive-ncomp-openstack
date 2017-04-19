@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Port#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Port#getName <em>Name</em>}</li>
@@ -53,7 +54,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Port#getNetwork_id <em>Network id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.Port#getSecurity_groups <em>Security groups</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.neutron.NeutronPackage#getPort()
  * @model

@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerSample#getCounter_name <em>Counter name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerSample#getUser_id <em>User id</em>}</li>
@@ -46,7 +47,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerSample#getCounter_volume <em>Counter volume</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerSample#getProject_id <em>Project id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerSample()
  * @model

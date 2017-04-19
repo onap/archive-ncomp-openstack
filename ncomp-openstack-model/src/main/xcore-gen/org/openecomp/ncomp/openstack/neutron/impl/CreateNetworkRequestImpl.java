@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateNetworkRequestImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateNetworkRequestImpl#getProviderNetworkType <em>Provider Network Type</em>}</li>
@@ -46,7 +47,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateNetworkRequestImpl#getAdmin_state_up <em>Admin state up</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.CreateNetworkRequestImpl#getShared <em>Shared</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

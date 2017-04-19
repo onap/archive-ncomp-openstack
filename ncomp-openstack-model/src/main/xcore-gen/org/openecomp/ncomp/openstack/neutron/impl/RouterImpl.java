@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.RouterImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.RouterImpl#getName <em>Name</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.RouterImpl#getExternal_gateway_info <em>External gateway info</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.neutron.impl.RouterImpl#getTenant_id <em>Tenant id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

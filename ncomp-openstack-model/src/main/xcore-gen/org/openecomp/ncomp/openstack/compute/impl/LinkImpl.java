@@ -39,12 +39,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.LinkImpl#getRel <em>Rel</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.LinkImpl#getHref <em>Href</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.compute.impl.LinkImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

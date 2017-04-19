@@ -26,20 +26,27 @@ package org.openecomp.ncomp.servers.openstack.loc;
 
 
 
+
 import java.io.InputStream;
 
 import org.openecomp.ncomp.sirius.manager.IRequestHandler;
+import org.openecomp.ncomp.sirius.manager.ISwaggerHandler;
 import org.openecomp.ncomp.sirius.manager.ISiriusPlugin;
 import org.openecomp.ncomp.sirius.manager.ISiriusServer;
+import org.openecomp.ncomp.sirius.manager.ISiriusProvider;
 import org.openecomp.ncomp.sirius.manager.ManagementServer;
+import org.openecomp.ncomp.sirius.manager.SwaggerUtils;
 import org.openecomp.ncomp.sirius.function.FunctionUtils;
 import org.openecomp.ncomp.component.ApiRequestStatus;
 
 import org.apache.log4j.Logger;
 
-import org.openecomp.logger.EcompLogger;
+import org.openecomp.ncomp.sirius.manager.logging.NcompLogger;
+import org.openecomp.logger.StatusCodeEnum;
+import org.openecomp.logger.EcompException;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.json.JSONObject;
 
 import java.util.Date;
@@ -54,9 +61,9 @@ import org.openecomp.ncomp.openstack.location.impl.OpenStackLocationImpl;
 
 
 
-public class OsOpenStackLocation extends OpenStackLocationImpl {
+public class OsOpenStackLocation extends OpenStackLocationImpl implements ISiriusProvider {
 	public static final Logger logger = Logger.getLogger(OsOpenStackLocation.class);
-	static final EcompLogger ecomplogger = EcompLogger.getEcompLogger();
+	static final NcompLogger ecomplogger = NcompLogger.getNcompLogger();
 	public OsOpenStackLocationProvider controller;
 	ISiriusServer server;
 
@@ -71,9 +78,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "poll", ApiRequestStatus.START, duration_);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.poll);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_poll,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_poll,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.poll();
 		}
@@ -82,8 +88,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "poll", ApiRequestStatus.ERROR, duration_);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.poll, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_poll, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_poll,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_poll, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -98,9 +106,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "mergeLocation", ApiRequestStatus.START, duration_,loc);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.mergeLocation);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_mergeLocation,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_mergeLocation,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.mergeLocation(loc);
 		}
@@ -109,8 +116,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "mergeLocation", ApiRequestStatus.ERROR, duration_,loc);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.mergeLocation, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_mergeLocation, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_mergeLocation,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_mergeLocation, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -125,9 +134,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createNetwork", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createNetwork);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createNetwork,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createNetwork,"self:" + ManagementServer.object2ref(this));
 		try {
 			res =  controller.createNetwork(request);
 		}
@@ -136,8 +144,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createNetwork", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createNetwork, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createNetwork, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createNetwork,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createNetwork, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -152,9 +162,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createSubnet", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createSubnet);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createSubnet,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createSubnet,"self:" + ManagementServer.object2ref(this));
 		try {
 			res =  controller.createSubnet(request);
 		}
@@ -163,8 +172,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createSubnet", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createSubnet, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createSubnet, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createSubnet,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createSubnet, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -179,9 +190,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createPort", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createPort);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createPort,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createPort,"self:" + ManagementServer.object2ref(this));
 		try {
 			res =  controller.createPort(request);
 		}
@@ -190,8 +200,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createPort", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createPort, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createPort, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createPort,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createPort, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -206,9 +218,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createRouter", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createRouter);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createRouter,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createRouter,"self:" + ManagementServer.object2ref(this));
 		try {
 			res =  controller.createRouter(request);
 		}
@@ -217,8 +228,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createRouter", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createRouter, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createRouter, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createRouter,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createRouter, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -233,9 +246,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deleteNetwork", ApiRequestStatus.START, duration_,projectName,name);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deleteNetwork);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deleteNetwork,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteNetwork,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deleteNetwork(projectName,name);
 		}
@@ -244,8 +256,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deleteNetwork", ApiRequestStatus.ERROR, duration_,projectName,name);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deleteNetwork, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteNetwork, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteNetwork,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deleteNetwork, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -260,9 +274,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deleteSubnet", ApiRequestStatus.START, duration_,projectName,name);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deleteSubnet);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deleteSubnet,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteSubnet,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deleteSubnet(projectName,name);
 		}
@@ -271,8 +284,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deleteSubnet", ApiRequestStatus.ERROR, duration_,projectName,name);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deleteSubnet, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteSubnet, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteSubnet,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deleteSubnet, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -287,9 +302,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deletePort", ApiRequestStatus.START, duration_,projectName,name);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deletePort);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deletePort,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deletePort,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deletePort(projectName,name);
 		}
@@ -298,8 +312,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deletePort", ApiRequestStatus.ERROR, duration_,projectName,name);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deletePort, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deletePort, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deletePort,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deletePort, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -314,9 +330,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deleteRouter", ApiRequestStatus.START, duration_,projectName,name);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deleteRouter);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deleteRouter,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteRouter,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deleteRouter(projectName,name);
 		}
@@ -325,8 +340,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deleteRouter", ApiRequestStatus.ERROR, duration_,projectName,name);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deleteRouter, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteRouter, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteRouter,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deleteRouter, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -341,9 +358,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "associateFloatingIp", ApiRequestStatus.START, duration_,projectName,ipId,portId);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.associateFloatingIp);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_associateFloatingIp,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_associateFloatingIp,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.associateFloatingIp(projectName,ipId,portId);
 		}
@@ -352,8 +368,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "associateFloatingIp", ApiRequestStatus.ERROR, duration_,projectName,ipId,portId);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.associateFloatingIp, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_associateFloatingIp, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_associateFloatingIp,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_associateFloatingIp, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -368,9 +386,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createServer", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createServer);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createServer,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createServer,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.createServer(request);
 		}
@@ -379,8 +396,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createServer", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createServer, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createServer, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createServer,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createServer, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -395,9 +414,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deleteServer", ApiRequestStatus.START, duration_,projectName,name);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deleteServer);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deleteServer,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteServer,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deleteServer(projectName,name);
 		}
@@ -406,8 +424,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deleteServer", ApiRequestStatus.ERROR, duration_,projectName,name);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deleteServer, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteServer, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteServer,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deleteServer, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -422,9 +442,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createKeyPair", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createKeyPair);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createKeyPair,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createKeyPair,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.createKeyPair(request);
 		}
@@ -433,8 +452,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createKeyPair", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createKeyPair, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createKeyPair, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createKeyPair,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createKeyPair, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -449,9 +470,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "delete", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.delete);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_delete,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_delete,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.delete(request);
 		}
@@ -460,8 +480,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "delete", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.delete, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_delete, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_delete,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_delete, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -476,9 +498,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createFlavor", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createFlavor);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createFlavor,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createFlavor,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.createFlavor(request);
 		}
@@ -487,8 +508,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createFlavor", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createFlavor, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createFlavor, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createFlavor,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createFlavor, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -503,9 +526,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createSecurityGroup", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createSecurityGroup);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createSecurityGroup,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createSecurityGroup,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.createSecurityGroup(request);
 		}
@@ -514,8 +536,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createSecurityGroup", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createSecurityGroup, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createSecurityGroup, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createSecurityGroup,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createSecurityGroup, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -530,9 +554,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "serverAction", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.serverAction);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_serverAction,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_serverAction,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.serverAction(request);
 		}
@@ -541,8 +564,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "serverAction", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.serverAction, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_serverAction, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_serverAction,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_serverAction, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -557,9 +582,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deployVmType", ApiRequestStatus.START, duration_,vmTypeName,projectName);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deployVmType);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deployVmType,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deployVmType,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deployVmType(vmTypeName,projectName);
 		}
@@ -568,8 +592,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deployVmType", ApiRequestStatus.ERROR, duration_,vmTypeName,projectName);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deployVmType, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deployVmType, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deployVmType,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deployVmType, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -584,9 +610,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "undeployVmType", ApiRequestStatus.START, duration_,vmTypeName,projectName);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.undeployVmType);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_undeployVmType,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_undeployVmType,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.undeployVmType(vmTypeName,projectName);
 		}
@@ -595,8 +620,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "undeployVmType", ApiRequestStatus.ERROR, duration_,vmTypeName,projectName);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.undeployVmType, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_undeployVmType, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_undeployVmType,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_undeployVmType, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -611,9 +638,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deployUser", ApiRequestStatus.START, duration_,user,projectName);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deployUser);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deployUser,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deployUser,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deployUser(user,projectName);
 		}
@@ -622,8 +648,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deployUser", ApiRequestStatus.ERROR, duration_,user,projectName);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deployUser, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deployUser, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deployUser,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deployUser, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -638,9 +666,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "undeployUser", ApiRequestStatus.START, duration_,user,projectName);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.undeployUser);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_undeployUser,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_undeployUser,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.undeployUser(user,projectName);
 		}
@@ -649,8 +676,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "undeployUser", ApiRequestStatus.ERROR, duration_,user,projectName);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.undeployUser, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_undeployUser, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_undeployUser,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_undeployUser, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -665,9 +694,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createAlarm", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createAlarm);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createAlarm,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createAlarm,"self:" + ManagementServer.object2ref(this));
 		try {
 			res =  controller.createAlarm(request);
 		}
@@ -676,8 +704,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createAlarm", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createAlarm, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createAlarm, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createAlarm,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createAlarm, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -692,9 +722,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "deleteAlarm", ApiRequestStatus.START, duration_,projectName,name);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.deleteAlarm);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_deleteAlarm,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_deleteAlarm,"self:" + ManagementServer.object2ref(this));
 		try {
 			 controller.deleteAlarm(projectName,name);
 		}
@@ -703,8 +732,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "deleteAlarm", ApiRequestStatus.ERROR, duration_,projectName,name);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.deleteAlarm, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteAlarm, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_deleteAlarm,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_deleteAlarm, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -719,9 +750,8 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 		if (server != null)
 			server.getServer().recordApi(null, this, "createAlarm", ApiRequestStatus.START, duration_,request);
 		Date now_ = new Date();
-		ecomplogger.recordMetricEventStart();
-		ecomplogger.setOperation(OpenStackLocationOperationEnum.createAlarm);
-		ecomplogger.setInstanceId(ManagementServer.object2ref(this));
+		ecomplogger.recordAuditEventStartIfNeeded(OpenStackLocationOperationEnum.OpenStackLocation_createAlarm,server,this);
+		ecomplogger.recordMetricEventStart(OpenStackLocationOperationEnum.OpenStackLocation_createAlarm,"self:" + ManagementServer.object2ref(this));
 		try {
 			res =  controller.createAlarm(request);
 		}
@@ -730,8 +760,10 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 			if (server != null)
 				server.getServer().recordApi(null, this, "createAlarm", ApiRequestStatus.ERROR, duration_,request);
 			System.err.println("ERROR: " + e);
-			ecomplogger.warn(OpenStackLocationMessageEnum.createAlarm, e.toString());
-			throw e;
+			ecomplogger.warn(OpenStackLocationMessageEnum.REQUEST_FAILED_createAlarm, e.toString());
+			EcompException e1 =  EcompException.create(OpenStackLocationMessageEnum.REQUEST_FAILED_createAlarm,e,e.getMessage());
+			ecomplogger.recordMetricEventEnd(StatusCodeEnum.ERROR, OpenStackLocationMessageEnum.REQUEST_FAILED_createAlarm, e.getMessage());
+			throw e1;
 		}
 		ecomplogger.recordMetricEventEnd();
 		duration_ = new Date().getTime()-now_.getTime();
@@ -745,10 +777,12 @@ public class OsOpenStackLocation extends OpenStackLocationImpl {
 
 
 
+
+
 	public static void ecoreSetup() {
 		OsOpenStackLocationProvider.ecoreSetup();
 	}
-	public OsOpenStackLocationProvider getSomfProvider() {
+	public OsOpenStackLocationProvider getSiriusProvider() {
 		return controller;
 	}
 }

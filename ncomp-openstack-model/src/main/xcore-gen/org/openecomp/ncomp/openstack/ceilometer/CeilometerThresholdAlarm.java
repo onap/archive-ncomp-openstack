@@ -31,10 +31,10 @@ package org.openecomp.ncomp.openstack.ceilometer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerThresholdAlarm#getThreshold_rule <em>Threshold rule</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerThresholdAlarm()
  * @model

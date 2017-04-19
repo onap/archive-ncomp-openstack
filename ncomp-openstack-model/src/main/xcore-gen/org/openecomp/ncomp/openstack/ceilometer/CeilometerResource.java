@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerResource#getId <em>Id</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerResource#getUser_id <em>User id</em>}</li>
@@ -45,7 +46,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerResource#getLinks <em>Links</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.CeilometerResource#getMetadata <em>Metadata</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.openecomp.ncomp.openstack.ceilometer.CeilometerPackage#getCeilometerResource()
  * @model

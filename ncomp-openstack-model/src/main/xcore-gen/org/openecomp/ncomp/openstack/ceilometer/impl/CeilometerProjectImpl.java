@@ -49,12 +49,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerProjectImpl#getAlarms <em>Alarms</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerProjectImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link org.openecomp.ncomp.openstack.ceilometer.impl.CeilometerProjectImpl#getMeters <em>Meters</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

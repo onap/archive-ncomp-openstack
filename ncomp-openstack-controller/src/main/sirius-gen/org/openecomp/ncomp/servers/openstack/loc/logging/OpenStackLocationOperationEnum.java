@@ -1,77 +1,45 @@
 
-/*-
- * ============LICENSE_START==========================================
- * OPENECOMP - DCAE
- * ===================================================================
- * Copyright (c) 2017 AT&T Intellectual Property. All rights reserved.
- * ===================================================================
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0 
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ============LICENSE_END============================================
- */
-	
-
 package org.openecomp.ncomp.servers.openstack.loc.logging;
 
 import org.openecomp.entity.EcompOperationEnum;
 
 public enum OpenStackLocationOperationEnum implements EcompOperationEnum {
 
-  createNetwork,
-  createSubnet,
-  createPort,
-  createRouter,
-  deleteNetwork,
-  deleteSubnet,
-  deletePort,
-  deleteRouter,
-  associateFloatingIp,
-  createServer,
-  deleteServer,
-  createKeyPair,
-  delete,
-  createFlavor,
-  createSecurityGroup,
-  serverAction,
-  deployVmType,
-  undeployVmType,
-  deployUser,
-  undeployUser,
-  createAlarm,
-  deleteAlarm,
-  poll,
-  mergeLocation,
-  REMOTE_createNetwork,
-  REMOTE_createSubnet,
-  REMOTE_createPort,
-  REMOTE_createRouter,
-  REMOTE_deleteNetwork,
-  REMOTE_deleteSubnet,
-  REMOTE_deletePort,
-  REMOTE_deleteRouter,
-  REMOTE_associateFloatingIp,
-  REMOTE_createServer,
-  REMOTE_deleteServer,
-  REMOTE_createKeyPair,
-  REMOTE_delete,
-  REMOTE_createFlavor,
-  REMOTE_createSecurityGroup,
-  REMOTE_serverAction,
-  REMOTE_deployVmType,
-  REMOTE_undeployVmType,
-  REMOTE_deployUser,
-  REMOTE_undeployUser,
-  REMOTE_createAlarm,
-  REMOTE_deleteAlarm,
-  REMOTE_poll,
-  REMOTE_mergeLocation;
+  OpenStackLocation_createNetwork("OpenStackLocation@createNetwork"),
+  OpenStackLocation_createSubnet("OpenStackLocation@createSubnet"),
+  OpenStackLocation_createPort("OpenStackLocation@createPort"),
+  OpenStackLocation_createRouter("OpenStackLocation@createRouter"),
+  OpenStackLocation_deleteNetwork("OpenStackLocation@deleteNetwork"),
+  OpenStackLocation_deleteSubnet("OpenStackLocation@deleteSubnet"),
+  OpenStackLocation_deletePort("OpenStackLocation@deletePort"),
+  OpenStackLocation_deleteRouter("OpenStackLocation@deleteRouter"),
+  OpenStackLocation_associateFloatingIp("OpenStackLocation@associateFloatingIp"),
+  OpenStackLocation_createServer("OpenStackLocation@createServer"),
+  OpenStackLocation_deleteServer("OpenStackLocation@deleteServer"),
+  OpenStackLocation_createKeyPair("OpenStackLocation@createKeyPair"),
+  OpenStackLocation_delete("OpenStackLocation@delete"),
+  OpenStackLocation_createFlavor("OpenStackLocation@createFlavor"),
+  OpenStackLocation_createSecurityGroup("OpenStackLocation@createSecurityGroup"),
+  OpenStackLocation_serverAction("OpenStackLocation@serverAction"),
+  OpenStackLocation_deployVmType("OpenStackLocation@deployVmType"),
+  OpenStackLocation_undeployVmType("OpenStackLocation@undeployVmType"),
+  OpenStackLocation_deployUser("OpenStackLocation@deployUser"),
+  OpenStackLocation_undeployUser("OpenStackLocation@undeployUser"),
+  OpenStackLocation_createAlarm("OpenStackLocation@createAlarm"),
+  OpenStackLocation_deleteAlarm("OpenStackLocation@deleteAlarm"),
+  OpenStackLocation_poll("OpenStackLocation@poll"),
+  OpenStackLocation_mergeLocation("OpenStackLocation@mergeLocation") ; 
+
+
+	private String n;
+	
+	private OpenStackLocationOperationEnum(String n) {
+		this.n = n;
+	}
+
+	@Override
+	public String toString() {
+		return n;
+	}
+
 }
